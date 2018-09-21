@@ -69,6 +69,9 @@ Plug 'maksimr/vim-jsbeautify'
 
 " use Nerd Fonts in vim
 Plug 'ryanoasis/vim-devicons'
+
+" switch to English keyboard automatically
+Plug 'lyokha/vim-xkbswitch'
 call plug#end()
 
 
@@ -140,6 +143,11 @@ autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
 autocmd FileType html,xhtml noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 " vim-jsbeautify settings end
+
+" XkbSwitch settings begin
+let g:XkbSwitchEnabled = 1
+let g:XkbSwitchLib = '/usr/local/lib/libInputSourceSwitcher.dylib'
+" XkbSwitch settings end
 
 " use fzf in vim
 set rtp+=/usr/local/opt/fzf
