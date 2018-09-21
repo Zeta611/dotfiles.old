@@ -40,7 +40,7 @@ Plug 'tpope/vim-git'
 Plug 'scrooloose/nerdcommenter'
 
 " asynchronous autocomplete framework
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 
 " autocompletion for Swift in deoplete
 Plug 'mitsuse/autocomplete-swift'
@@ -72,6 +72,10 @@ Plug 'ryanoasis/vim-devicons'
 
 " switch to English keyboard automatically
 Plug 'lyokha/vim-xkbswitch'
+
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
+
+Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
 call plug#end()
 
 
@@ -148,9 +152,6 @@ autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 let g:XkbSwitchEnabled = 1
 let g:XkbSwitchLib = '/usr/local/lib/libInputSourceSwitcher.dylib'
 " XkbSwitch settings end
-
-" use fzf in vim
-set rtp+=/usr/local/opt/fzf
 
 " make pyenv work with neovim
 let g:python_host_prog = '/Users/jay/.pyenv/versions/neovim2/bin/python'
