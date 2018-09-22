@@ -47,6 +47,12 @@ Plug 'mitsuse/autocomplete-swift'
 
 Plug 'tweekmonster/deoplete-clang'
 
+" snippet engine for vim
+Plug 'SirVer/ultisnips'
+
+" snippets
+Plug 'honza/vim-snippets'
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -153,6 +159,14 @@ let g:XkbSwitchEnabled = 1
 let g:XkbSwitchLib = '/usr/local/lib/libInputSourceSwitcher.dylib'
 " XkbSwitch settings end
 
+" UltiSnips settings begin
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+let g:UltiSnipsEditSplit="vertical"
+" UltiSnips settings end
+
 " make pyenv work with neovim
 let g:python_host_prog = '/Users/jay/.pyenv/versions/neovim2/bin/python'
 let g:python3_host_prog = '/Users/jay/.pyenv/versions/neovim3/bin/python'
@@ -170,8 +184,6 @@ set list lcs=tab:\┆\ ,eol:$,extends:>,precedes:<,trail:~,space:·
 if has("syntax")
     syntax on
 endif
-
-filetype plugin indent on
 
 nnoremap <Left> :vertical resize -5<CR>
 nnoremap <Right> :vertical resize +5<CR>
