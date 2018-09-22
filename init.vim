@@ -1,7 +1,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 " autoclose pairs
-Plug 'Townk/vim-autoclose'
+Plug 'Raimondi/delimitMate'
 
 " vim time tracking via WakaTime
 Plug 'wakatime/vim-wakatime'
