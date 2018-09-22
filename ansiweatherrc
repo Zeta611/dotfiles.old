@@ -1,0 +1,5 @@
+location:Seoul,KR
+symbols:true
+show_daylight:true
+forecast:0
+background:\033[49m
