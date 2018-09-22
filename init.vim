@@ -164,7 +164,8 @@ set relativenumber
 autocmd FileType * set tabstop=4|set shiftwidth=4|set softtabstop=4|set autoindent|set cindent|set expandtab|set smarttab|set smartindent
 autocmd FileType html,xhtml,swift set tabstop=2|set shiftwidth=2|set softtabstop=2
 autocmd FileType c set tabstop=8|set shiftwidth=8|set softtabstop=8|set noexpandtab
-set list lcs=tab:\┆\ 
+
+set list lcs=tab:\┆\ ,eol:$,extends:>,precedes:<,trail:~,space:·
 
 if has("syntax")
     syntax on
