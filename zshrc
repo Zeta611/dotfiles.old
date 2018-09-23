@@ -93,6 +93,14 @@ eval "$(pyenv init -)"
 # gpg
 export GPG_TTY=$(tty)
 
+if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
+    source ~/.gnupg/.gpg-agent-info
+    export GPG_AGENT_INFO
+else
+    # eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
+    eval $(gpg-agent --daemon)
+fi
+
 # thefuck
 eval $(thefuck --alias)
 
@@ -117,9 +125,11 @@ alias setnvim='nvim ~/.config/nvim/init.vim'
 alias sethyper='nvim ~/.hyper.js&&source ~/.zshrc'
 alias weather='ansiweather'
 alias forcast='ansiweather -F'
-alias v='nvim'
+alias v='NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim'
+alias nvr='/Users/jay/.pyenv/versions/neovim3/bin/nvr'
 alias cat='ccat'
 alias src='source ~/.zshrc'
+alias skim='/Applications/Skim.app/Contents/MacOS/Skim'
 
 # gitignore.io
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
