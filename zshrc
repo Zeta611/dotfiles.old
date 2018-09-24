@@ -1,12 +1,9 @@
 # Load zplug
-[ ! -d ~/.zplug ] && git clone https://github.com/zplug/zplug ~/.zplug
 source ~/.zplug/init.zsh
-
-zplug "djui/alias-tips"
 
 zplug "zsh-users/zsh-autosuggestions"
 
-zplug "zdharma/fast-syntax-highlighting"
+zplug "zdharma/fast-syntax-highlighting", defer:2
 
 zplug "djui/alias-tips"
 
@@ -47,21 +44,6 @@ if zplug check bhilburn/powerlevel9k; then
     POWERLEVEL9K_BATTERY_LEVEL_BACKGROUND=(darkred orange4 yellow4 yellow4 chartreuse3 green3 green4 darkgreen)
 fi
 
-zplug "plugins/colorize", \
-    from:oh-my-zsh
-
-zplug "plugins/command-not-found", \
-    from:oh-my-zsh
-
-zplug "plugins/copydir", \
-    from:oh-my-zsh
-
-zplug "plugins/copyfile", \
-    from:oh-my-zsh
-
-zplug "plugins/extract", \
-    from:oh-my-zsh
-
 zplug "changyuheng/zsh-interactive-cd"
 
 zplug "amstrad/oh-my-matrix"
@@ -69,15 +51,22 @@ zplug "amstrad/oh-my-matrix"
 zplug "wbingli/zsh-wakatime"
 
 # install & load zplug plugins
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-    echo
-fi
+# if ! zplug check --verbose; then
+#     printf "Install? [y/N]: "
+#     if read -q; then
+#         echo; zplug install
+#     fi
+#     echo
+# fi
 
 zplug load
+
+autoload -Uz compinit
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+    compinit
+else
+    compinit -C
+fi
 
 # terminal color
 export TERM="xterm-256color"
@@ -86,9 +75,19 @@ export TERM="xterm-256color"
 export PATH="$HOME/bin:$PATH"
 
 # pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# Lazy load pyenv
+if type pyenv &> /dev/null; then
+    local PYENV_SHIMS="${PYENV_ROOT:-${HOME}/.pyenv}/shims"
+    export PATH="${PYENV_SHIMS}:${PATH}"
+    function pyenv() {
+        unset pyenv
+        eval "$(command pyenv init -)"
+        pyenv $@
+    }
+fi
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 
 # gpg
 export GPG_TTY=$(tty)
@@ -97,8 +96,9 @@ if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
     source ~/.gnupg/.gpg-agent-info
     export GPG_AGENT_INFO
 else
-    # eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
-    eval $(gpg-agent --daemon)
+    {
+        eval $(gpg-agent --daemon)
+    } &> /dev/null
 fi
 
 # thefuck
@@ -117,7 +117,10 @@ source $(dirname $(gem which colorls))/tab_complete.sh
 source ~/.iterm2_shell_integration.zsh
 
 # aliases
-alias ls='colorls -lA --sd'
+alias la='colorls -lA --sd'
+alias ls='colorls -l --sd'
+alias ldir='colorls -ldA'
+alias lf='colorls -lfA'
 alias clr='clear'
 alias finder='open ~'
 alias setzsh='nvim ~/.zshrc&&source ~/.zshrc'
@@ -127,7 +130,6 @@ alias weather='ansiweather'
 alias forcast='ansiweather -F'
 alias v='NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim'
 alias nvr='/Users/jay/.pyenv/versions/neovim3/bin/nvr'
-alias cat='ccat'
 alias src='source ~/.zshrc'
 alias skim='/Applications/Skim.app/Contents/MacOS/Skim'
 
