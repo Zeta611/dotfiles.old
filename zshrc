@@ -17,13 +17,6 @@ elapsed=$(($now-$timer))
 echo $elapsed":" $plugin
 
 timer=$(($(gdate +%s%N)/1000000))
-plugin='auto-color-ls'
-zplug "gretzky/auto-color-ls"
-now=$(($(gdate +%s%N)/1000000))
-elapsed=$(($now-$timer))
-echo $elapsed":" $plugin
-
-timer=$(($(gdate +%s%N)/1000000))
 plugin='zsh-bd'
 zplug "Tarrasch/zsh-bd"
 now=$(($(gdate +%s%N)/1000000))
@@ -46,7 +39,7 @@ echo $elapsed":" $plugin
 
 timer=$(($(gdate +%s%N)/1000000))
 plugin='emoji-cli'
-zplug "b4b4r07/emoji-cli", lazy:off
+zplug "b4b4r07/emoji-cli", lazy:on
 
 if zplug check b4b4r07/emoji-cli; then
     EMOJI_CLI_KEYBIND="^E"
@@ -107,11 +100,10 @@ elapsed=$(($now-$timer))
 echo $elapsed":" $plugin
 
 autoload -Uz compinit
-if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
-    compinit
-else
-    compinit -C
-fi
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
 
 # terminal color
 export TERM="xterm-256color"
