@@ -31,7 +31,7 @@ if zplug check bhilburn/powerlevel9k; then
     POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
     POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="\uf179  "
 
-    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs pyenv)
+    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
     POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs date time battery)
 
     POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=$'\uE0B0'
