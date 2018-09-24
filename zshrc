@@ -99,7 +99,6 @@ j() {
     [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
     j "$@"
 }
-# [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 # fzf configuration
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
