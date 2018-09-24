@@ -1,15 +1,16 @@
 # Load zplug
-source ~/.zplug/init.zsh
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
 
 zplug "zsh-users/zsh-autosuggestions"
 
 zplug "zdharma/fast-syntax-highlighting", defer:2
 
-zplug "djui/alias-tips"
-
 zplug "gretzky/auto-color-ls"
 
 zplug "Tarrasch/zsh-bd"
+
+zplug "wting/autojump"
 
 zplug "zuxfoucault/colored-man-pages_mod"
 
@@ -46,18 +47,7 @@ fi
 
 zplug "changyuheng/zsh-interactive-cd"
 
-zplug "amstrad/oh-my-matrix"
-
 zplug "wbingli/zsh-wakatime"
-
-# install & load zplug plugins
-# if ! zplug check --verbose; then
-#     printf "Install? [y/N]: "
-#     if read -q; then
-#         echo; zplug install
-#     fi
-#     echo
-# fi
 
 zplug load
 
@@ -74,8 +64,7 @@ export TERM="xterm-256color"
 # custom script location
 export PATH="$HOME/bin:$PATH"
 
-# pyenv
-# Lazy load pyenv
+# lazily load pyenv
 if type pyenv &> /dev/null; then
     local PYENV_SHIMS="${PYENV_ROOT:-${HOME}/.pyenv}/shims"
     export PATH="${PYENV_SHIMS}:${PATH}"
@@ -85,9 +74,6 @@ if type pyenv &> /dev/null; then
         pyenv $@
     }
 fi
-# export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
 
 # gpg
 export GPG_TTY=$(tty)
@@ -108,7 +94,12 @@ eval $(thefuck --alias)
 source $(dirname $(gem which colorls))/tab_complete.sh
 
 # autojump configuration
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+j() {
+    unset -f j
+    [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+    j "$@"
+}
+# [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 # fzf configuration
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
