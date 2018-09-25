@@ -10,7 +10,7 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'Raimondi/delimitMate'
 
 " display indentation
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 
 " smooth scroll
 Plug 'terryma/vim-smooth-scroll'
@@ -34,10 +34,11 @@ Plug 'honza/vim-snippets'
 Plug 'sheerun/vim-polyglot'
 
 " syntax checker
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
+Plug 'neomake/neomake'
 
 " swift syntax and indentation with syntastic
-Plug 'keith/swift.vim'
+" Plug 'keith/swift.vim'
 
 " commenter
 Plug 'scrooloose/nerdcommenter'
@@ -93,6 +94,8 @@ Plug 'stevearc/vim-arduino'
 " vim time tracking via WakaTime
 Plug 'wakatime/vim-wakatime'
 
+" auto save changes to disk every time a buffer has been modified
+Plug 'vim-scripts/vim-auto-save'
 call plug#end()
 
 " make pyenv work with neovim
@@ -122,18 +125,13 @@ if has("syntax")
     syntax on
 endif
 
-au VimEnter * set concealcursor=""
+au VimEnter * set concealcursor=nc
 
 " custom keymaps begin
 nnoremap <Left> :vertical resize -5<CR>
 nnoremap <Right> :vertical resize +5<CR>
 nnoremap <Up> :resize -5<CR>
 nnoremap <Down> :resize +5<CR>
-
-nnoremap ; :
-nnoremap : ;
-vnoremap ; :
-vnoremap : ;
 " custom keymaps end
 
 " enable RainbowParentheses when launch
@@ -171,16 +169,20 @@ let g:polyglot_disabled = ['tex', 'latex']
 " vim-polygot settings end
 
 " Syntastic settings begin
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_swift_swiftlint_use_defaults = 1
-let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_swift_swiftlint_use_defaults = 1
+" let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 " Syntastic settings end
+
+" Neomake settings begin
+call neomake#configure#automake('nrwi', 500)
+" Neomake settings end
 
 " NERD Commenter settings begin
 let g:NERDSpaceDelims = 1
@@ -236,3 +238,7 @@ let g:gruvbox_italic=1
 let g:XkbSwitchEnabled = 1
 let g:XkbSwitchLib = '/usr/local/lib/libInputSourceSwitcher.dylib'
 " XkbSwitch settings end
+
+" AutoSave settings begin
+let g:auto_save = 1
+" AutoSave settings end
