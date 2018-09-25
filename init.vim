@@ -143,6 +143,8 @@ au VimEnter * RainbowParentheses
 
 " Indent Guides settings begin
 let g:indent_guides_enable_on_vim_startup = 1
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=#282828
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3c3836
 " Indent Guides settings end
 
 " vim-smooth-scroll settings begin
