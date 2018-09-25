@@ -10,7 +10,7 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'Raimondi/delimitMate'
 
 " display indentation
-" Plug 'Yggdroot/indentLine'
+Plug 'nathanaelkane/vim-indent-guides'
 
 " smooth scroll
 Plug 'terryma/vim-smooth-scroll'
@@ -119,7 +119,7 @@ autocmd FileType * set tabstop=4|set shiftwidth=4|set softtabstop=4|set autoinde
 autocmd FileType html,xhtml,swift set tabstop=2|set shiftwidth=2|set softtabstop=2
 autocmd FileType c set tabstop=8|set shiftwidth=8|set softtabstop=8|set noexpandtab
 
-set list lcs=tab:\┆\ ,eol:$,extends:>,precedes:<,trail:~,space:·
+set list lcs=tab:\┆\ ,eol:$,extends:>,precedes:<,trail:~
 
 if has("syntax")
     syntax on
@@ -138,8 +138,12 @@ nnoremap <Down> :resize +5<CR>
 au VimEnter * RainbowParentheses
 
 " indentLine settings begin
-let g:indentLine_char = '┆'
+" let g:indentLine_char = '┆'
 " indentLine settings end
+
+" Indent Guides settings begin
+let g:indent_guides_enable_on_vim_startup = 1
+" Indent Guides settings end
 
 " vim-smooth-scroll settings begin
 noremap <silent> <c-up> :call smooth_scroll#up(&scroll, 0, 2)<CR>
