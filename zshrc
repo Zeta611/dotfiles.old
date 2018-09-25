@@ -130,12 +130,12 @@ source ~/.iterm2_shell_integration.zsh
 
 # aliases
 plugin='aliases'
+alias l='colorls -l --sd'
 alias la='colorls -lA --sd'
-alias ls='colorls -l --sd'
 alias ldir='colorls -ldA'
 alias lf='colorls -lfA'
 alias clr='clear'
-alias finder='open ~'
+alias finder='open .'
 alias setzsh='nvim ~/.zshrc&&source ~/.zshrc'
 alias setnvim='nvim ~/.config/nvim/init.vim'
 alias sethyper='nvim ~/.hyper.js&&source ~/.zshrc'

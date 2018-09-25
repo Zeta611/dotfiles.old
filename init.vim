@@ -122,13 +122,18 @@ if has("syntax")
     syntax on
 endif
 
-au VimEnter * set concealcursor=n
+au VimEnter * set concealcursor=""
 
 " custom keymaps begin
 nnoremap <Left> :vertical resize -5<CR>
 nnoremap <Right> :vertical resize +5<CR>
 nnoremap <Up> :resize -5<CR>
 nnoremap <Down> :resize +5<CR>
+
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
 " custom keymaps end
 
 " enable RainbowParentheses when launch
@@ -204,6 +209,8 @@ let g:vimtex_compiler_latexmk = {
     \   '-interaction=nonstopmode',
     \ ],
     \}
+
+let g:vimtex_quickfix_autoclose_after_keystrokes = 1
 " vimtex settings end
 
 " vim-jsbeautify settings begin
