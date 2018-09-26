@@ -34,11 +34,7 @@ Plug 'honza/vim-snippets'
 Plug 'sheerun/vim-polyglot'
 
 " syntax checker
-" Plug 'vim-syntastic/syntastic'
 Plug 'neomake/neomake'
-
-" swift syntax and indentation with syntastic
-" Plug 'keith/swift.vim'
 
 " commenter
 Plug 'scrooloose/nerdcommenter'
@@ -132,14 +128,15 @@ nnoremap <Left> :vertical resize -5<CR>
 nnoremap <Right> :vertical resize +5<CR>
 nnoremap <Up> :resize -5<CR>
 nnoremap <Down> :resize +5<CR>
+
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
 " custom keymaps end
 
 " enable RainbowParentheses when launch
 au VimEnter * RainbowParentheses
-
-" indentLine settings begin
-" let g:indentLine_char = '┆'
-" indentLine settings end
 
 " Indent Guides settings begin
 let g:indent_guides_enable_on_vim_startup = 1
@@ -174,18 +171,6 @@ let g:UltiSnipsEditSplit="vertical"
 let g:polyglot_disabled = ['tex', 'latex']
 " vim-polygot settings end
 
-" Syntastic settings begin
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_swift_swiftlint_use_defaults = 1
-" let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
-" Syntastic settings end
-
 " Neomake settings begin
 call neomake#configure#automake('nrwi', 500)
 " Neomake settings end
@@ -204,7 +189,7 @@ let g:NERDToggleCheckAllLines = 1
 " vimtex settings begin
 let g:vimtex_view_method = 'skim'
 let g:vimtex_compiler_progname = '/Users/jay/.pyenv/versions/neovim3/bin/nvr'
-let g:vimtex_quickfix_enable = 0
+let g:vimtex_quickfix_mode = 2
 let g:vimtex_view_skim_activate = 1
 
 let g:vimtex_compiler_latexmk = {
@@ -217,7 +202,6 @@ let g:vimtex_compiler_latexmk = {
     \   '-interaction=nonstopmode',
     \ ],
     \}
-
 let g:vimtex_quickfix_autoclose_after_keystrokes = 1
 " vimtex settings end
 
