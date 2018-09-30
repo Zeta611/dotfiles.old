@@ -1,30 +1,24 @@
 # Load zplug
+export TERM="xterm-256color"
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
-plugin='zsh-autosuggestions'
 zplug "zsh-users/zsh-autosuggestions"
 
-plugin='fast-syntax-highlighting'
 zplug "zdharma/fast-syntax-highlighting", defer:2
 
-plugin='zsh-bd'
 zplug "Tarrasch/zsh-bd"
 
-plugin='autojump'
 zplug "wting/autojump"
 
-plugin='colored-man-pages_mod'
 zplug "zuxfoucault/colored-man-pages_mod"
 
-plugin='emoji-cli'
 zplug "b4b4r07/emoji-cli", lazy:on
 
 if zplug check b4b4r07/emoji-cli; then
     EMOJI_CLI_KEYBIND="^E"
 fi
 
-plugin='powerlevel9k'
 zplug "bhilburn/powerlevel9k", \
     use:powerlevel9k.zsh-theme
 
@@ -50,13 +44,10 @@ if zplug check bhilburn/powerlevel9k; then
     POWERLEVEL9K_BATTERY_LEVEL_BACKGROUND=(darkred orange4 yellow4 yellow4 chartreuse3 green3 green4 darkgreen)
 fi
 
-plugin='zsh-interactive-cd'
 zplug "changyuheng/zsh-interactive-cd"
 
-plugin='zsh-wakatime'
 zplug "wbingli/zsh-wakatime"
 
-plugin='load'
 zplug load
 
 autoload -Uz compinit
@@ -65,14 +56,10 @@ for dump in ~/.zcompdump(N.mh+24); do
 done
 compinit -C
 
-# terminal color
-export TERM="xterm-256color"
-
 # custom script location
 export PATH="$HOME/bin:$PATH"
 
 # lazily load pyenv
-plugin='pyenv'
 if type pyenv &> /dev/null; then
     local PYENV_SHIMS="${PYENV_ROOT:-${HOME}/.pyenv}/shims"
     export PATH="${PYENV_SHIMS}:${PATH}"
@@ -84,7 +71,6 @@ if type pyenv &> /dev/null; then
 fi
 
 # gpg
-plugin='gpg'
 export GPG_TTY=$(tty)
 
 if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
@@ -97,7 +83,6 @@ else
 fi
 
 # thefuck
-plugin='thefuck'
 fuck() {
     unset -f fuck
     eval $(thefuck --alias)
@@ -105,7 +90,6 @@ fuck() {
 }
 
 # colorls configuration
-plugin='colorls'
 colorls() {
     unset -f colorls
     source $(dirname $(gem which colorls))/tab_complete.sh
@@ -113,7 +97,6 @@ colorls() {
 }
 
 # autojump configuration
-plugin='autojump'
 j() {
     unset -f j
     [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
@@ -121,15 +104,15 @@ j() {
 }
 
 # fzf configuration
-plugin='fzf'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # iterm2 configuration
-plugin='iterm2'
 source ~/.iterm2_shell_integration.zsh
 
+# gitignore.io
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+
 # aliases
-plugin='aliases'
 alias l='colorls -l --sd'
 alias la='colorls -lA --sd'
 alias ldir='colorls -ldA'
@@ -145,7 +128,5 @@ alias v='NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim'
 alias nvr='/Users/jay/.pyenv/versions/neovim3/bin/nvr'
 alias src='source ~/.zshrc'
 alias skim='/Applications/Skim.app/Contents/MacOS/Skim'
-
-# gitignore.io
-plugin='gitignore.io'
-function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+alias tmdisablethrottle='sudo sysctl debug.lowpri_throttle_enabled=0'
+alias tmenablethrottle='sudo sysctl debug.lowpri_throttle_enabled=1'

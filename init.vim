@@ -60,6 +60,9 @@ Plug 'tpope/vim-fugitive'
 " LaTeX with vim
 Plug 'lervag/vimtex'
 
+" more conceal feature for LaTeX
+Plug 'KeitaNakamura/tex-conceal.vim'
+
 " javascript refactor
 Plug 'maksimr/vim-jsbeautify'
 
@@ -80,6 +83,9 @@ Plug 'vim-airline/vim-airline-themes'
 
 " gruvbox theme
 Plug 'morhetz/gruvbox'
+
+" seamless navigation between tmux panes and vim splits
+Plug 'christoomey/vim-tmux-navigator'
 
 " switch to English keyboard automatically
 Plug 'lyokha/vim-xkbswitch'
@@ -121,8 +127,6 @@ if has("syntax")
     syntax on
 endif
 
-au VimEnter * set concealcursor=nc
-
 " custom keymaps begin
 nnoremap <Left> :vertical resize -5<CR>
 nnoremap <Right> :vertical resize +5<CR>
@@ -137,6 +141,15 @@ nnoremap <c-l> <c-w>l
 
 " enable RainbowParentheses when launch
 au VimEnter * RainbowParentheses
+
+" delimitMate settings begin
+au FileType tex,bib let b:delimitMate_quotes = '$'
+au FileType tex,bib let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
+au FileType tex,bib let b:delimitMate_smart_matchpairs = '^\%(\w\|\!\|[£]\|[^[:space:][:punct:]]\)'
+
+let delimitMate_expand_cr = 1
+set backspace=2
+" delimitMate settings end
 
 " Indent Guides settings begin
 let g:indent_guides_enable_on_vim_startup = 1
@@ -190,6 +203,7 @@ let g:NERDToggleCheckAllLines = 1
 let g:vimtex_view_method = 'skim'
 let g:vimtex_compiler_progname = '/Users/jay/.pyenv/versions/neovim3/bin/nvr'
 let g:vimtex_quickfix_mode = 2
+let g:vimtex_quickfix_autoclose_after_keystrokes = 1
 let g:vimtex_view_skim_activate = 1
 
 let g:vimtex_compiler_latexmk = {
@@ -202,8 +216,13 @@ let g:vimtex_compiler_latexmk = {
     \   '-interaction=nonstopmode',
     \ ],
     \}
-let g:vimtex_quickfix_autoclose_after_keystrokes = 1
 " vimtex settings end
+
+" tex-conceal settings begin
+" au VimEnter * set concealcursor=nc
+set conceallevel=2
+let g:tex_conceal="abdgm"
+" tex-conceal settings end
 
 " vim-jsbeautify settings begin
 map <c-f> :call JsBeautify()<cr>
