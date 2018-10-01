@@ -64,6 +64,9 @@ Plug 'tpope/vim-git'
 " git wrapper
 Plug 'tpope/vim-fugitive'
 
+" better git commit buffer
+Plug 'rhysd/committia.vim'
+
 " LaTeX with vim
 Plug 'lervag/vimtex'
 
