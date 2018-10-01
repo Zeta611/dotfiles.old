@@ -1,5 +1,8 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
+" faster motion
+Plug 'easymotion/vim-easymotion'
+
 " easily delete, change, and add surroundings.
 Plug 'tpope/vim-surround'
 
