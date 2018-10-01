@@ -1,4 +1,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
+" better dot repeat
+Plug 'tpope/vim-repeat'
+
 " visualize undo branches
 Plug 'mbbill/undotree'
 
