@@ -53,7 +53,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " shows a git diff in the gutter
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 
 " vim syntax, indent, and filetype plugin files for git
 Plug 'tpope/vim-git'
