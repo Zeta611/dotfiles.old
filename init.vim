@@ -1,4 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugged')
+" visualize undo branches
+Plug 'mbbill/undotree'
 
 " faster motion
 Plug 'easymotion/vim-easymotion'
@@ -138,6 +140,11 @@ set list lcs=tab:\┆\ ,eol:$,extends:>,precedes:<,trail:~
 
 if has("syntax")
     syntax on
+endif
+
+if has("persistent_undo")
+    set undodir=~/.local/share/nvim/undodir/
+    set undofile
 endif
 
 " custom keymaps begin
