@@ -272,3 +272,8 @@ let g:XkbSwitchLib = '/usr/local/lib/libInputSourceSwitcher.dylib'
 " AutoSave settings begin
 let g:auto_save = 1
 " AutoSave settings end
+
+" Limelight settings begin
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+" Limelight settings end
