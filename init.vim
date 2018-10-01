@@ -105,6 +105,12 @@ Plug 'wakatime/vim-wakatime'
 
 " auto save changes to disk every time a buffer has been modified
 Plug 'vim-scripts/vim-auto-save'
+
+" distraction-free writing
+Plug 'junegunn/goyo.vim'
+
+" highlight current line
+Plug 'junegunn/limelight.vim'
 call plug#end()
 
 " make pyenv work with neovim
