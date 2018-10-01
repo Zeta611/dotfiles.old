@@ -70,6 +70,8 @@ Plug 'maksimr/vim-jsbeautify'
 " fuzzy finder
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 
+Plug 'junegunn/fzf.vim'
+
 " gitignore file generation with fuzzy finder interface
 Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
 
