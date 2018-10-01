@@ -173,6 +173,8 @@ noremap <silent> <c-d> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
 " deoplete settings begin
 let g:deoplete#enable_at_startup = 1
+
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " deoplete settings end
 
 " autocomplete-swift settings begin
