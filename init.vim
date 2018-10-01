@@ -159,8 +159,13 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 " custom keymaps end
 
-" enable RainbowParentheses when launch
+" undotree settings begin
+let g:undotree_WindowLayout = 3
+" undotree settings end
+
+" RainbowParentheses settings begin
 au VimEnter * RainbowParentheses
+" RainbowParentheses settings end
 
 " delimitMate settings begin
 " au FileType tex,bib let b:delimitMate_quotes = '$'
