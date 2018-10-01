@@ -7,7 +7,8 @@ Plug 'tpope/vim-surround'
 Plug 'junegunn/rainbow_parentheses.vim'
 
 " autoclose pairs
-Plug 'Raimondi/delimitMate'
+" Plug 'Raimondi/delimitMate'
+Plug 'cohama/lexima.vim'
 
 " display indentation
 Plug 'nathanaelkane/vim-indent-guides'
@@ -143,13 +144,19 @@ nnoremap <c-l> <c-w>l
 au VimEnter * RainbowParentheses
 
 " delimitMate settings begin
-au FileType tex,bib let b:delimitMate_quotes = '$'
-au FileType tex,bib let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
-au FileType tex,bib let b:delimitMate_smart_matchpairs = '^\%(\w\|\!\|[£]\|[^[:space:][:punct:]]\)'
-
-let delimitMate_expand_cr = 1
-set backspace=2
+" au FileType tex,bib let b:delimitMate_quotes = '$'
+" au FileType tex,bib let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
+" au FileType tex,bib let b:delimitMate_smart_matchpairs = '^\%(\w\|\!\|[£]\|[^[:space:][:punct:]]\)'
+"
+" let delimitMate_expand_cr = 1
+" set backspace=2
 " delimitMate settings end
+
+" lexima settings begin
+call lexima#add_rule({'char': '$', 'input_after': '$', 'filetype': 'latex'})
+call lexima#add_rule({'char': '$', 'at': '\%#\$', 'leave': 1, 'filetype': 'latex'})
+call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'latex'})
+" lexima settings end
 
 " Indent Guides settings begin
 let g:indent_guides_enable_on_vim_startup = 1
