@@ -137,6 +137,9 @@ set visualbell
 set termguicolors
 set background=dark
 
+set ignorecase
+set smartcase
+
 " set indentation
 autocmd FileType * set tabstop=4|set shiftwidth=4|set softtabstop=4|set autoindent|set cindent|set expandtab|set smarttab|set smartindent
 autocmd FileType html,xhtml,swift set tabstop=2|set shiftwidth=2|set softtabstop=2
@@ -172,15 +175,6 @@ let g:undotree_WindowLayout = 3
 " RainbowParentheses settings begin
 au VimEnter * RainbowParentheses
 " RainbowParentheses settings end
-
-" delimitMate settings begin
-" au FileType tex,bib let b:delimitMate_quotes = '$'
-" au FileType tex,bib let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
-" au FileType tex,bib let b:delimitMate_smart_matchpairs = '^\%(\w\|\!\|[£]\|[^[:space:][:punct:]]\)'
-"
-" let delimitMate_expand_cr = 1
-" set backspace=2
-" delimitMate settings end
 
 " lexima settings begin
 call lexima#add_rule({'char': '$', 'input_after': '$', 'filetype': 'latex'})
@@ -241,7 +235,7 @@ let g:NERDToggleCheckAllLines = 1
 " vimtex settings begin
 let g:vimtex_view_method = 'skim'
 let g:vimtex_compiler_progname = '/Users/jay/.pyenv/versions/neovim3/bin/nvr'
-let g:vimtex_quickfix_mode = 2
+let g:vimtex_quickfix_mode = 0
 let g:vimtex_quickfix_autoclose_after_keystrokes = 1
 let g:vimtex_view_skim_activate = 1
 
