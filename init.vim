@@ -31,7 +31,7 @@ Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'mitsuse/autocomplete-swift'
 
 " clang deoplete
-Plug 'tweekmonster/deoplete-clang'
+Plug 'zchee/deoplete-clang'
 
 " snippet engine for vim
 Plug 'SirVer/ultisnips'
@@ -177,9 +177,9 @@ au VimEnter * RainbowParentheses
 " RainbowParentheses settings end
 
 " lexima settings begin
-call lexima#add_rule({'char': '$', 'input_after': '$', 'filetype': 'latex'})
-call lexima#add_rule({'char': '$', 'at': '\%#\$', 'leave': 1, 'filetype': 'latex'})
-call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'latex'})
+call lexima#add_rule({'char': '$', 'input_after': '$', 'filetype': 'tex'})
+call lexima#add_rule({'char': '$', 'at': '\%#\$', 'leave': 1, 'filetype': 'tex'})
+call lexima#add_rule({'char': '<BS>', 'at': '\$\%#\$', 'delete': 1, 'filetype': 'tex'})
 " lexima settings end
 
 " Indent Guides settings begin
@@ -199,6 +199,9 @@ noremap <silent> <c-d> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 let g:deoplete#enable_at_startup = 1
 
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/7.0.0/lib/libclang.dylib'
+let g:deoplete#sources#clang#clang_header = '/usr/local/opt/llvm/lib/clang/'
 " deoplete settings end
 
 " autocomplete-swift settings begin
@@ -235,7 +238,7 @@ let g:NERDToggleCheckAllLines = 1
 " vimtex settings begin
 let g:vimtex_view_method = 'skim'
 let g:vimtex_compiler_progname = '/Users/jay/.pyenv/versions/neovim3/bin/nvr'
-let g:vimtex_quickfix_mode = 0
+let g:vimtex_quickfix_mode = 2
 let g:vimtex_quickfix_autoclose_after_keystrokes = 1
 let g:vimtex_view_skim_activate = 1
 
@@ -282,7 +285,7 @@ let g:XkbSwitchLib = '/usr/local/lib/libInputSourceSwitcher.dylib'
 " XkbSwitch settings end
 
 " AutoSave settings begin
-let g:auto_save = 1
+let g:auto_save = 0
 " AutoSave settings end
 
 " Limelight settings begin

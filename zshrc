@@ -57,7 +57,7 @@ done
 compinit -C
 
 # custom script location
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/Developer/bin:$PATH"
 
 # lazily load pyenv
 if type pyenv &> /dev/null; then
@@ -126,7 +126,11 @@ alias weather='ansiweather'
 alias forcast='ansiweather -F'
 alias v='NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim'
 alias nvr='/Users/jay/.pyenv/versions/neovim3/bin/nvr'
+alias refreshnvr='rm /tmp/nvimsocket'
 alias src='source ~/.zshrc'
 alias skim='/Applications/Skim.app/Contents/MacOS/Skim'
 alias tmdisablethrottle='sudo sysctl debug.lowpri_throttle_enabled=0'
 alias tmenablethrottle='sudo sysctl debug.lowpri_throttle_enabled=1'
+
+export LANG=ko_KR.UTF-8
+export LC_ALL=ko_KR.UTF-8
