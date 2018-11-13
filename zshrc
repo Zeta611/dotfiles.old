@@ -134,3 +134,4 @@ alias tmenablethrottle='sudo sysctl debug.lowpri_throttle_enabled=1'
 
 export LANG=ko_KR.UTF-8
 export LC_ALL=ko_KR.UTF-8
+export PATH=/usr/local/opt/ruby/bin:$PATH
