@@ -119,6 +119,9 @@ Plug 'junegunn/goyo.vim'
 
 " highlight current line
 Plug 'junegunn/limelight.vim'
+
+" Sublime Text like minimap
+Plug 'severin-lemaignan/vim-minimap'
 call plug#end()
 
 " make pyenv work with neovim
@@ -294,3 +297,7 @@ let g:auto_save = 0
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 " Limelight settings end
+
+" Minimap settings begin
+let g:minimap_highlight='Visual'
+" Minimap settings end
