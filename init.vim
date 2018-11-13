@@ -202,6 +202,8 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/7.0.0/lib/libclang.dylib'
 let g:deoplete#sources#clang#clang_header = '/usr/local/opt/llvm/lib/clang/'
+" call deoplete#custom#source('clang', 'fileytpes', ['c', 'cpp', 'arduino'])
+autocmd FileType arduino set filetype=c
 " deoplete settings end
 
 " autocomplete-swift settings begin
@@ -262,7 +264,7 @@ let g:tex_conceal="abdgm"
 
 " vim-jsbeautify settings begin
 map <c-f> :call JsBeautify()<cr>
-autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+autocmd FileType javascript noremap <buffer> <c-f> :call JsBeautify()<cr>
 autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
 autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
 autocmd FileType html,xhtml noremap <buffer> <c-f> :call HtmlBeautify()<cr>
