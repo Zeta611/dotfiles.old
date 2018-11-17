@@ -1,3 +1,4 @@
+# zmodload zsh/zprof
 # Load zplug
 export LANG=ko_KR.UTF-8
 export LC_ALL=ko_KR.UTF-8
@@ -14,7 +15,7 @@ zplug "Tarrasch/zsh-bd"
 
 zplug "wting/autojump"
 
-zplug "zuxfoucault/colored-man-pages_mod"
+zplug "zuxfoucault/colored-man-pages_mod", lazy:on
 
 zplug "b4b4r07/emoji-cli", lazy:on
 
@@ -32,10 +33,10 @@ if zplug check bhilburn/powerlevel9k; then
     P9K_PROMPT_ADD_NEWLINE=true
     P9K_PROMPT_ON_NEWLINE=true
     P9K_MULTILINE_FIRST_PROMPT_PREFIX_ICON=""
-    P9K_MULTILINE_LAST_PROMPT_PREFIX_ICON=$'\uf302  '
+    P9K_MULTILINE_LAST_PROMPT_PREFIX_ICON=$'ζ '
 
-    P9K_LEFT_PROMPT_ELEMENTS=(user dir vcs pyenv)
-    # P9K_LEFT_PROMPT_ELEMENTS=(user dir vcs)
+    # P9K_LEFT_PROMPT_ELEMENTS=(user dir vcs pyenv)
+    P9K_LEFT_PROMPT_ELEMENTS=(user dir vcs)
     P9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs date time battery)
 
     P9K_LEFT_SEGMENT_SEPARATOR_ICON=$'\uE0B0'
@@ -50,7 +51,7 @@ if zplug check bhilburn/powerlevel9k; then
 
     P9K_DIR_SHORTEN_LENGTH=1
     P9K_DIR_SHORTEN_DELIMITER=""
-    P9K_DIR_SHORTEN_STRATEGY=truncate_to_unique_but_last
+    P9K_DIR_SHORTEN_STRATEGY=truncate_from_right
 
     P9K_TIME_FORMAT="%D{%H:%M:%S}"
     P9K_DATE_FORMAT="%D{%m/%d}"
@@ -66,11 +67,13 @@ zplug "wbingli/zsh-wakatime"
 
 zplug load
 
+# compinit check for rebuilding the dump & calling compaudit once a day
 autoload -Uz compinit
-for dump in ~/.zcompdump(N.mh+24); do
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
   compinit
-done
-compinit -C
+else
+  compinit -C
+fi
 
 # custom script location
 export PATH="$HOME/Developer/bin:$PATH"
@@ -90,14 +93,26 @@ else
     } &> /dev/null
 fi
 
-# colorls configuration
-source $(dirname $(gem which colorls))/tab_complete.sh
-
 # thefuck
-eval $(thefuck --alias)
+fuck() {
+    unset -f fuck
+    eval $(thefuck --alias)
+    fuck "$@"
+}
 
-# autojump configuration
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+# colorls configuration
+colorls() {
+    unset -f colorls
+    source $(dirname $(gem which colorls))/tab_complete.sh
+    colorls "$@"
+}
+
+ # autojump configuration
+j() {
+    unset -f j
+    [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+    j "$@"
+}
 
 # fzf configuration
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -127,3 +142,4 @@ alias src='source ~/.zshrc'
 alias skim='/Applications/Skim.app/Contents/MacOS/Skim'
 alias tmdisablethrottle='sudo sysctl debug.lowpri_throttle_enabled=0'
 alias tmenablethrottle='sudo sysctl debug.lowpri_throttle_enabled=1'
+# zprof
