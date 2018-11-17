@@ -205,7 +205,6 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/7.0.0/lib/libclang.dylib'
 let g:deoplete#sources#clang#clang_header = '/usr/local/opt/llvm/lib/clang/'
-" call deoplete#custom#source('clang', 'fileytpes', ['c', 'cpp', 'arduino'])
 autocmd FileType arduino set filetype=c
 " deoplete settings end
 
@@ -215,9 +214,8 @@ autocmd FileType swift imap <buffer> <C-k> <Plug>(autocomplete_swift_jump_to_pla
 
 " UltiSnips settings begin
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 " UltiSnips settings end
 
@@ -299,5 +297,5 @@ autocmd! User GoyoLeave Limelight!
 " Limelight settings end
 
 " Minimap settings begin
-let g:minimap_highlight='Visual'
+let g:minimap_highlight='StatusLine'
 " Minimap settings end

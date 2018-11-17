@@ -1,4 +1,7 @@
 # Load zplug
+export LANG=ko_KR.UTF-8
+export LC_ALL=ko_KR.UTF-8
+export PATH=/usr/local/opt/ruby/bin:$PATH
 export TERM="xterm-256color"
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
@@ -20,28 +23,41 @@ if zplug check b4b4r07/emoji-cli; then
 fi
 
 zplug "bhilburn/powerlevel9k", \
-    use:powerlevel9k.zsh-theme
+    use:powerlevel9k.zsh-theme, \
+    at:next
 
 if zplug check bhilburn/powerlevel9k; then
-    POWERLEVEL9K_MODE='nerdfont-complete'
+    P9K_MODE='nerdfont-complete'
 
-    POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-    POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-    POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
-    POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="\uf179  "
+    P9K_PROMPT_ADD_NEWLINE=true
+    P9K_PROMPT_ON_NEWLINE=true
+    P9K_MULTILINE_FIRST_PROMPT_PREFIX_ICON=""
+    P9K_MULTILINE_LAST_PROMPT_PREFIX_ICON=$'\uf302  '
 
-    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs date time battery)
+    P9K_LEFT_PROMPT_ELEMENTS=(user dir vcs pyenv)
+    # P9K_LEFT_PROMPT_ELEMENTS=(user dir vcs)
+    P9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs date time battery)
 
-    POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=$'\uE0B0'
-    POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=$'\uE0B2'
+    P9K_LEFT_SEGMENT_SEPARATOR_ICON=$'\uE0B0'
+    P9K_RIGHT_SEGMENT_SEPARATOR_ICON=$'\uE0B2'
 
-    POWERLEVEL9K_VCS_BRANCH_ICON='\uF126 '
-    POWERLEVEL9K_VCS_GIT_GITHUB_ICON="\uf408 "
+    P9K_VCS_BRANCH_ICON='\uF126 '
+    P9K_VCS_GIT_GITHUB_ICON="\uf408 "
 
-    POWERLEVEL9K_BATTERY_LOW_THRESHOLD=30
-    POWERLEVEL9K_BATTERY_STAGES=($'\uf582 ' $'\uf579 ' $'\uf57a ' $'\uf57b ' $'\uf57c ' $'\uf57d ' $'\uf57e ' $'\uf57f' $'\uf580 ' $'\uf581 ' $'\uf578')
-    POWERLEVEL9K_BATTERY_LEVEL_BACKGROUND=(darkred orange4 yellow4 yellow4 chartreuse3 green3 green4 darkgreen)
+    P9K_BATTERY_LOW_THRESHOLD=30
+    P9K_BATTERY_STAGES=($'\uf582 ' $'\uf579 ' $'\uf57a ' $'\uf57b ' $'\uf57c ' $'\uf57d ' $'\uf57e ' $'\uf57f' $'\uf580 ' $'\uf581 ' $'\uf578')
+    P9K_BATTERY_LEVEL_BACKGROUND=(darkred orange4 yellow4 yellow4 chartreuse3 green3 green4 darkgreen)
+
+    P9K_DIR_SHORTEN_LENGTH=1
+    P9K_DIR_SHORTEN_DELIMITER=""
+    P9K_DIR_SHORTEN_STRATEGY=truncate_to_unique_but_last
+
+    P9K_TIME_FORMAT="%D{%H:%M:%S}"
+    P9K_DATE_FORMAT="%D{%m/%d}"
+
+    P9K_USER_DEFAULT_ICON="\uF415"
+    P9K_USER_ROOT_ICON="#"
+    P9K_USER_SUDO_ICON=$'\uF09C'
 fi
 
 zplug "changyuheng/zsh-interactive-cd"
@@ -60,15 +76,7 @@ compinit -C
 export PATH="$HOME/Developer/bin:$PATH"
 
 # lazily load pyenv
-if type pyenv &> /dev/null; then
-    local PYENV_SHIMS="${PYENV_ROOT:-${HOME}/.pyenv}/shims"
-    export PATH="${PYENV_SHIMS}:${PATH}"
-    function pyenv() {
-        unset pyenv
-        eval "$(command pyenv init -)"
-        pyenv $@
-    }
-fi
+eval "$(pyenv init -)"
 
 # gpg
 export GPG_TTY=$(tty)
@@ -82,26 +90,14 @@ else
     } &> /dev/null
 fi
 
-# thefuck
-fuck() {
-    unset -f fuck
-    eval $(thefuck --alias)
-    fuck "$@"
-}
-
 # colorls configuration
-colorls() {
-    unset -f colorls
-    source $(dirname $(gem which colorls))/tab_complete.sh
-    colorls "$@"
-}
+source $(dirname $(gem which colorls))/tab_complete.sh
+
+# thefuck
+eval $(thefuck --alias)
 
 # autojump configuration
-j() {
-    unset -f j
-    [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-    j "$@"
-}
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 # fzf configuration
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -131,7 +127,3 @@ alias src='source ~/.zshrc'
 alias skim='/Applications/Skim.app/Contents/MacOS/Skim'
 alias tmdisablethrottle='sudo sysctl debug.lowpri_throttle_enabled=0'
 alias tmenablethrottle='sudo sysctl debug.lowpri_throttle_enabled=1'
-
-export LANG=ko_KR.UTF-8
-export LC_ALL=ko_KR.UTF-8
-export PATH=/usr/local/opt/ruby/bin:$PATH
