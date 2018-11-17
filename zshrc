@@ -33,7 +33,7 @@ if zplug check bhilburn/powerlevel9k; then
     P9K_PROMPT_ADD_NEWLINE=true
     P9K_PROMPT_ON_NEWLINE=true
     P9K_MULTILINE_FIRST_PROMPT_PREFIX_ICON=""
-    P9K_MULTILINE_LAST_PROMPT_PREFIX_ICON=$'ζ '
+    P9K_MULTILINE_LAST_PROMPT_PREFIX_ICON="%{%B%F{red}%}ζ "
 
     # P9K_LEFT_PROMPT_ELEMENTS=(user dir vcs pyenv)
     P9K_LEFT_PROMPT_ELEMENTS=(user dir vcs)
