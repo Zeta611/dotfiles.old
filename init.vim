@@ -225,6 +225,17 @@ let g:polyglot_disabled = ['tex', 'latex']
 
 " Neomake settings begin
 call neomake#configure#automake('nrwi', 500)
+let g:neomake_python_enabled_makers = ['flake8']
+let g:neomake_python_flake8_maker = {
+  \ 'exe': '/Users/jay/.pyenv/shims/flake8',
+  \ 'args': ['--format=default'],
+  \ 'errorformat':
+      \ '%E%f:%l: could not compile,%-Z%p^,' .
+      \ '%A%f:%l:%c: %t%n %m,' .
+      \ '%A%f:%l: %t%n %m,' .
+      \ '%-G%.%#',
+  \ 'postprocess': function('neomake#makers#ft#python#Flake8EntryProcess')
+  \ }
 " Neomake settings end
 
 " NERD Commenter settings begin
