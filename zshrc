@@ -23,11 +23,11 @@ if zplug check b4b4r07/emoji-cli; then
     EMOJI_CLI_KEYBIND="^E"
 fi
 
-zplug "Zeta611/powerlevel9k", \
+zplug "bhilburn/powerlevel9k", \
     use:powerlevel9k.zsh-theme, \
-    at:no-match-found-handle
+    at:next
 
-if zplug check Zeta611/powerlevel9k; then
+if zplug check bhilburn/powerlevel9k; then
     P9K_MODE='nerdfont-complete'
 
     P9K_PROMPT_ADD_NEWLINE=true
