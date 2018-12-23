@@ -225,6 +225,7 @@ let g:polyglot_disabled = ['tex', 'latex']
 
 " Neomake settings begin
 call neomake#configure#automake('nrwi', 500)
+" let g:neomake_tex_enabled_makers = ['chktex', 'rubberinfo', 'proselint']
 let g:neomake_python_enabled_makers = ['flake8']
 let g:neomake_python_flake8_maker = {
   \ 'exe': '/Users/jay/.pyenv/shims/flake8',
