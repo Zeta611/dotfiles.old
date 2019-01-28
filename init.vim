@@ -148,6 +148,8 @@ autocmd FileType * set tabstop=4|set shiftwidth=4|set softtabstop=4|set autoinde
 autocmd FileType html,xhtml,swift set tabstop=2|set shiftwidth=2|set softtabstop=2
 autocmd FileType c set tabstop=8|set shiftwidth=8|set softtabstop=8|set noexpandtab
 
+au FileType gitcommit set tw=100
+
 set list lcs=tab:\┆\ ,eol:$,extends:>,precedes:<,trail:~
 
 if has("syntax")
