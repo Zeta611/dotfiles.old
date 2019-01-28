@@ -79,8 +79,9 @@ fi
 # custom script location
 export PATH="$HOME/Developer/bin:$PATH"
 
-# lazily load pyenv
+# load pyenv
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # gpg
 export GPG_TTY=$(tty)
