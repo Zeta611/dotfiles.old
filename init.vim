@@ -122,6 +122,9 @@ Plug 'junegunn/limelight.vim'
 
 " Sublime Text like minimap
 Plug 'severin-lemaignan/vim-minimap'
+
+" Carbon plugin
+Plug 'kristijanhusak/vim-carbon-now-sh'
 call plug#end()
 
 " make pyenv work with neovim
@@ -143,12 +146,14 @@ set background=dark
 set ignorecase
 set smartcase
 
+set so=7
+
 " set indentation
 autocmd FileType * set tabstop=4|set shiftwidth=4|set softtabstop=4|set autoindent|set cindent|set expandtab|set smarttab|set smartindent
 autocmd FileType html,xhtml,swift set tabstop=2|set shiftwidth=2|set softtabstop=2
 autocmd FileType c set tabstop=8|set shiftwidth=8|set softtabstop=8|set noexpandtab
 
-au FileType gitcommit set tw=100
+au FileType gitcommit set tw=1000
 
 set list lcs=tab:\┆\ ,eol:$,extends:>,precedes:<,trail:~
 
@@ -205,7 +210,7 @@ let g:deoplete#enable_at_startup = 1
 
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/7.0.0/lib/libclang.dylib'
+let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/7.0.1/lib/libclang.dylib'
 let g:deoplete#sources#clang#clang_header = '/usr/local/opt/llvm/lib/clang/'
 autocmd FileType arduino set filetype=c
 " deoplete settings end
@@ -273,7 +278,8 @@ let g:vimtex_compiler_latexmk = {
 
 " tex-conceal settings begin
 " au VimEnter * set concealcursor=nc
-set conceallevel=2
+" set conceallevel=2
+set conceallevel=0
 let g:tex_conceal="abdgm"
 " tex-conceal settings end
 
