@@ -6,6 +6,7 @@
 	excludesfile = ~/.gitignore_global
 	editor = nvim
 	pager = diff-so-fancy | less --tabs=4 -RFX
+	autocrlf = input
 [gpg]
 	program = gpg
 [commit]
