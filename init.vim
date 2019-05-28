@@ -125,6 +125,9 @@ Plug 'severin-lemaignan/vim-minimap'
 
 " Carbon plugin
 Plug 'kristijanhusak/vim-carbon-now-sh'
+
+" Dash plugin
+Plug 'rizzatti/dash.vim'
 call plug#end()
 
 " make pyenv work with neovim
