@@ -92,9 +92,16 @@ cask "vnc-viewer"
 cask "xquartz"
 cask "yemuzip"
 cask "zeplin"
+mas "Be Focused", id: 973134470
+mas "Cascadea", id: 1432182561
+mas "iStudiez Pro (Release)", id: 402989379
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
+mas "MindNode", id: 1289197285
 mas "Notability", id: 736189492
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Scopie", id: 1027457763
 mas "Xcode", id: 497799835
 mas "카카오톡", id: 869223134
