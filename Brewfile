@@ -73,6 +73,7 @@ cask "lepton"
 cask "mathpix-snipping-tool"
 cask "mounty"
 cask "omnifocus"
+cask "papers"
 cask "pdf-expert"
 cask "r"
 cask "rstudio"
@@ -91,5 +92,9 @@ cask "vnc-viewer"
 cask "xquartz"
 cask "yemuzip"
 cask "zeplin"
-mas "com.apple.dt.Xcode", id: 497799835
-mas "com.kakao.KakaoTalkMac", id: 869223134
+mas "Microsoft Excel", id: 462058435
+mas "Microsoft PowerPoint", id: 462062816
+mas "Microsoft Word", id: 462054704
+mas "Notability", id: 736189492
+mas "Xcode", id: 497799835
+mas "카카오톡", id: 869223134
