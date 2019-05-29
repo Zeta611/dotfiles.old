@@ -10,6 +10,7 @@ export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include"
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
 
 export PATH=/usr/local/opt/ruby/bin:$PATH
+PATH=$PATH:$(ruby -e 'puts Gem.bindir')
 export TERM="xterm-256color"
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
