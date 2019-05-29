@@ -131,8 +131,8 @@ Plug 'rizzatti/dash.vim'
 call plug#end()
 
 " make pyenv work with neovim
-let g:python_host_prog = '/Users/jay/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = '/Users/jay/.pyenv/versions/neovim3/bin/python'
+let g:python_host_prog = expand('~/.pyenv/versions/neovim-python2/bin/python')
+let g:python3_host_prog = expand('~/.pyenv/versions/neovim-python3/bin/python')
 
 set nocompatible
 filetype plugin indent on
