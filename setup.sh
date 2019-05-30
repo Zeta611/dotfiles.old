@@ -170,3 +170,9 @@ mkdir -p "$HOME/.local/share/nvim/site/autoload"
 [ -f "$HOME/.local/share/nvim/site/autoload/plug.vim" ] || curl -fLo "$HOME/.local/share/nvim/site/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 nvim +PlugInstall +qall
 echo "${highlight}vim-plug for Neovim set!${reset}"
+
+# Install Cocoapods
+echo -e "\n${highlight}Installing Cocoapods...${reset}"
+sudo gem install cocoapods
+echo "${highlight}Cocoapods installed!${reset}"
+
