@@ -133,6 +133,8 @@ source ~/.iterm2_shell_integration.zsh
 # gitignore.io
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
+set -o vi
+
 # aliases
 alias l='colorls -l --sd'
 alias la='colorls -lA --sd'
