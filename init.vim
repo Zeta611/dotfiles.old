@@ -153,8 +153,8 @@ set so=7
 
 " set indentation
 autocmd FileType * set tabstop=4|set shiftwidth=4|set softtabstop=4|set autoindent|set cindent|set expandtab|set smarttab|set smartindent
-autocmd FileType html,xhtml,swift set tabstop=2|set shiftwidth=2|set softtabstop=2
-autocmd FileType c set tabstop=8|set shiftwidth=8|set softtabstop=8|set noexpandtab
+autocmd FileType html,xhtml,swift,sh,cpp set tabstop=2|set shiftwidth=2|set softtabstop=2
+autocmd FileType c,go set tabstop=8|set shiftwidth=8|set softtabstop=8|set noexpandtab
 
 au FileType gitcommit set tw=1000
 
