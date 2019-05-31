@@ -85,6 +85,7 @@ mkdir -p "$HOME/.config/nvim"
 [ -f "$HOME/.config/nvim/init.vim" ] || ln -s "$HOME/.dotfiles/init.vim" "$HOME/.config/nvim/init.vim"
 [ -f "$HOME/.leptonrc" ] || ln -s "$HOME/.dotfiles/leptonrc" "$HOME/.leptonrc"
 [ -f "$HOME/.gnupg/gpg-agent.conf" ] || ln -s "$HOME/.dotfiles/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
+[ -f "/Applications/openWithVim.app" ] || osacompile -o "/Applications/openWithVim.app" "$HOME/.dotfiles/openWithVim.applescript"
 
 # Adds path to brew-installed zsh to /etc/shells if it doesn't exist
 echo -e "\n${highlight}Setting /etc/shells...${reset}"
