@@ -215,8 +215,9 @@ let g:deoplete#enable_at_startup = 1
 
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/7.0.1/lib/libclang.dylib'
-let g:deoplete#sources#clang#clang_header = '/usr/local/opt/llvm/lib/clang/'
+let llvm_path = systemlist('brew --prefix llvm')[0]
+let g:deoplete#sources#clang#libclang_path = llvm_path . "/lib/libclang.dylib"
+let g:deoplete#sources#clang#clang_header = llvm_path . "/lib/clang/"
 autocmd FileType arduino set filetype=c
 " deoplete settings end
 
