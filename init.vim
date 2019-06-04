@@ -97,7 +97,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " gruvbox theme
-Plug 'morhetz/gruvbox'
+Plug 'Zeta611/gruvbox'
 
 " seamless navigation between tmux panes and vim splits
 Plug 'christoomey/vim-tmux-navigator'
@@ -148,6 +148,8 @@ set background=dark
 
 set ignorecase
 set smartcase
+
+set textwidth=79
 
 set so=7
 
@@ -238,7 +240,7 @@ call neomake#configure#automake('nrwi', 500)
 " let g:neomake_tex_enabled_makers = ['chktex', 'rubberinfo', 'proselint']
 let g:neomake_python_enabled_makers = ['flake8']
 let g:neomake_python_flake8_maker = {
-  \ 'exe': '/Users/jay/.pyenv/shims/flake8',
+  \ 'exe': expand('~/.pyenv/versions/3.7.3/envs/neovim-python3/bin/flake8'),
   \ 'args': ['--format=default'],
   \ 'errorformat':
       \ '%E%f:%l: could not compile,%-Z%p^,' .

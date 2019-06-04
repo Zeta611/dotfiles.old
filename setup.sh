@@ -147,7 +147,8 @@ else
   grep -qF $LATEST_PYTHON2 <(pyenv versions) || pyenv install $LATEST_PYTHON2
   pyenv virtualenv $LATEST_PYTHON2 neovim-python2
   pyenv activate neovim-python2
-  pip install pynvim
+  pip install --upgrade pip
+  pip install pynvim flake8
   pyenv deactivate
   echo "${highlight}Python2 environment for neovim set!${reset}"
 fi
@@ -160,7 +161,8 @@ else
   grep -qF $LATEST_PYTHON3 <(pyenv versions) || pyenv install $LATEST_PYTHON3
   pyenv virtualenv $LATEST_PYTHON3 neovim-python3
   pyenv activate neovim-python3
-  pip install pynvim
+  pip install --upgrade pip
+  pip install pynvim flake8
   pyenv deactivate
   echo "${highlight}Python3 environment for neovim set!${reset}"
 fi
@@ -176,4 +178,9 @@ echo "${highlight}vim-plug for Neovim set!${reset}"
 echo -e "\n${highlight}Installing Cocoapods...${reset}"
 sudo gem install cocoapods
 echo "${highlight}Cocoapods installed!${reset}"
+
+# Install Adobe Creative Cloud
+echo -e "\n${highlight}Installing Adobe Creative Cloud...${reset}"
+open "/usr/local/Caskroom/adobe-creative-cloud/latest/Creative Cloud Installer.app"
+echo "${highlight}Adobe Creative Cloud installed!${reset}"
 
