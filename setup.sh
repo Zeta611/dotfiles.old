@@ -12,6 +12,7 @@ if [ $? -eq 0 ]; then
   echo "${alert}Xcode Command Line Tools already installed!${reset}"
 else
   xcode-select --install
+  sudo xcode-select --switch /Library/Developer/CommandLineTools
   echo "${highlight}Xcode Command Line Tools installed!${reset}"
 fi
 
