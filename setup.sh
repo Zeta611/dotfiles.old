@@ -164,7 +164,7 @@ else
   pyenv virtualenv $LATEST_PYTHON3 neovim-python3
   pyenv activate neovim-python3
   pip install --upgrade pip
-  pip install pynvim flake8
+  pip install pynvim flake8 neovim-remote
   pyenv deactivate
   echo "${highlight}Python3 environment for neovim set!${reset}"
 fi

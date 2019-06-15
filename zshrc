@@ -152,7 +152,7 @@ alias weather='ansiweather'
 alias forcast='ansiweather -F'
 
 alias v='NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim'
-alias nvr='/Users/jay/.pyenv/versions/neovim3/bin/nvr'
+alias nvr='~/.pyenv/versions/neovim-python3/bin/nvr'
 alias refreshnvr='rm /tmp/nvimsocket'
 
 alias src='source ~/.zshrc'
