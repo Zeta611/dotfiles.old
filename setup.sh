@@ -183,6 +183,10 @@ echo "${highlight}Cocoapods installed!${reset}"
 
 # Install Adobe Creative Cloud
 echo -e "\n${highlight}Installing Adobe Creative Cloud...${reset}"
-open "/usr/local/Caskroom/adobe-creative-cloud/latest/Creative Cloud Installer.app"
-echo "${highlight}Adobe Creative Cloud installed!${reset}"
+if [ -d "/Applications/Adobe Creative Cloud" ]; then
+  echo "${alert}Adobe Creative Cloud already installed!${reset}"
+else
+  open "/usr/local/Caskroom/adobe-creative-cloud/latest/Creative Cloud Installer.app"
+  echo "${highlight}Adobe Creative Cloud installed!${reset}"
+fi
 
