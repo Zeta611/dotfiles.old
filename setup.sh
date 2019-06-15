@@ -101,6 +101,7 @@ echo "${highlight}Git setup!${reset}"
 
 # Setup colorls
 echo -e "\n${highlight}Setting colorls...${reset}"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
 grep -qF "colorls" <(gem query --local) || gem install colorls
 echo "${highlight}colorls setup!${reset}"
 
