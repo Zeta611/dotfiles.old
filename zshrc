@@ -165,6 +165,7 @@ alias gic='git commit -S'
 alias gica='git commit -a -S'
 alias gip='git push'
 alias gipf='git push -f'
+alias gil='git log'
 
 alias ctags='/usr/local/bin/ctags'
 # zprof
