@@ -17,7 +17,7 @@ brew "diff-so-fancy"
 brew "emojify"
 brew "icu4c"
 brew "ffmpeg"
-brew "fontforge"
+brew "fontforge", link: false
 brew "gdb"
 brew "ghostscript"
 brew "gnupg"
@@ -26,6 +26,7 @@ brew "go"
 brew "haskell-stack"
 brew "llvm"
 brew "mas"
+brew "mpv"
 brew "neofetch"
 brew "neovim"
 brew "nmap"
@@ -69,6 +70,8 @@ cask "font-hack-nerd-font"
 cask "font-nanumgothic"
 cask "font-nanumgothiccoding"
 cask "font-nanummyeongjo"
+cask "font-noto-sans-cjk-kr"
+cask "font-noto-serif-cjk-kr"
 cask "font-ubuntumono-nerd-font-mono"
 cask "fontforge"
 cask "freedom"
@@ -83,6 +86,7 @@ cask "lepton"
 cask "mactex"
 cask "mathpix-snipping-tool"
 cask "mounty"
+cask "mpv"
 cask "omnifocus"
 cask "papers"
 cask "pdf-expert"
@@ -103,9 +107,13 @@ cask "vnc-viewer"
 cask "xquartz"
 cask "yemuzip"
 cask "zeplin"
+mas "AdBlock", id: 1402042596
 mas "Be Focused", id: 973134470
 mas "Cascadea", id: 1432182561
-mas "iStudiez Pro (Release)", id: 402989379
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "iStudiez Pro", id: 402989379
+mas "Keynote", id: 409183694
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
