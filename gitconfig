@@ -1,7 +1,7 @@
 [user]
 	email = jaeho.lee@snu.ac.kr
 	name = Jaeho Lee
-	signingkey = 1244CA15AE08F7852EC1D5D79B07113F7E2F533E
+	signingkey = EDFEFC5488FB3794291768893AC4BA710A0DCE5D
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = nvim

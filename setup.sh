@@ -48,6 +48,7 @@ else
   mas install 497799835
   echo "${highlight}Xcode installed!${reset}"
   sudo xcodebuild -license accept
+  curl -fsSL https://raw.githubusercontent.com/wakatime/xcode-wakatime/master/install.sh | sh
 fi
 
 # Install XQuartz via Hombrew Cask if not already installed
