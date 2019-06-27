@@ -1,14 +1,14 @@
 [user]
 	email = jaeho.lee@snu.ac.kr
 	name = Jaeho Lee
-	signingkey = EDFEFC5488FB3794291768893AC4BA710A0DCE5D
+	signingkey = 663EF46CCBC101152DCD12069E578E261B34C5F9
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = nvim
 	pager = diff-so-fancy | less --tabs=4 -RFX
 	autocrlf = input
 [gpg]
-	program = gpg
+	program = /usr/local/MacGPG2/bin/gpg2
 [commit]
 	gpgsign = true
 [alias]
@@ -20,3 +20,5 @@
 	lg1-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
 	lg2-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
 	lg3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
+[tag]
+	forceSignAnnotated = true
