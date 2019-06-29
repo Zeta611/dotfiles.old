@@ -150,6 +150,7 @@ set ignorecase
 set smartcase
 
 set textwidth=79
+set colorcolumn=79
 
 set so=7
 
@@ -325,3 +326,6 @@ autocmd! User GoyoLeave Limelight!
 " Minimap settings begin
 let g:minimap_highlight='StatusLine'
 " Minimap settings end
+
+" Correct syntax highlighting for expl3
+autocmd FileType tex syn match texStatement "\\[a-zA-Z_:@]\+"
