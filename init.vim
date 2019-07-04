@@ -128,6 +128,9 @@ Plug 'kristijanhusak/vim-carbon-now-sh'
 
 " Dash plugin
 Plug 'rizzatti/dash.vim'
+
+" emmet abbreviation
+Plug 'mattn/emmet-vim'
 call plug#end()
 
 " make pyenv work with neovim
