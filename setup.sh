@@ -182,6 +182,11 @@ echo -e "\n${highlight}Installing Cocoapods...${reset}"
 sudo gem install cocoapods
 echo "${highlight}Cocoapods installed!${reset}"
 
+# Install Jazzy
+echo -e "\n${highlight}Installing jazzy...${reset}"
+sudo gem install jazzy
+echo "${highlight}jazzy installed!${reset}"
+
 # Install Adobe Creative Cloud
 echo -e "\n${highlight}Installing Adobe Creative Cloud...${reset}"
 if [ -d "/Applications/Adobe Creative Cloud" ]; then
