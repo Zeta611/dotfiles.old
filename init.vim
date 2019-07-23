@@ -30,6 +30,9 @@ Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 " Swift deoplete
 Plug 'mitsuse/autocomplete-swift'
 
+" Python deoplete
+Plug 'deoplete-plugins/deoplete-jedi'
+
 " clang deoplete
 Plug 'zchee/deoplete-clang'
 
