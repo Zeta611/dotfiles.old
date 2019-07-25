@@ -32,43 +32,38 @@ if zplug check b4b4r07/emoji-cli; then
     EMOJI_CLI_KEYBIND="^E"
 fi
 
-zplug "bhilburn/powerlevel9k", \
-    use:powerlevel9k.zsh-theme, \
-    at:next
+zplug "romkatv/powerlevel10k", \
+    use:powerlevel9k.zsh-theme
 
-if zplug check bhilburn/powerlevel9k; then
-    P9K_MODE='nerdfont-complete'
+if zplug check romkatv/powerlevel10k; then
+    POWERLEVEL9K_MODE='nerdfont-complete'
 
-    P9K_PROMPT_ADD_NEWLINE=true
-    P9K_PROMPT_ON_NEWLINE=true
-    P9K_MULTILINE_FIRST_PROMPT_PREFIX_ICON=""
-    P9K_MULTILINE_LAST_PROMPT_PREFIX_ICON="%{%B%F{red}%}ζ "
+    POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+    POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+    POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+    POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{red}%}ζ "
 
-    # P9K_LEFT_PROMPT_ELEMENTS=(user dir vcs pyenv)
-    P9K_LEFT_PROMPT_ELEMENTS=(user dir vcs)
-    P9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs date time battery)
+    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir vcs pyenv virtualenv vi_mode)
+    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs date time battery)
 
-    P9K_LEFT_SEGMENT_SEPARATOR_ICON=$'\uE0B0'
-    P9K_RIGHT_SEGMENT_SEPARATOR_ICON=$'\uE0B2'
+    POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR_ICON=$'\uE0B0'
+    POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR_ICON=$'\uE0B2'
 
-    P9K_VCS_BRANCH_ICON='\uF126 '
-    P9K_VCS_GIT_GITHUB_ICON="\uf408 "
+    POWERLEVEL9K_VCS_BRANCH_ICON='\uF126 '
+    POWERLEVEL9K_VCS_GIT_GITHUB_ICON="\uf408 "
 
-    P9K_BATTERY_LOW_THRESHOLD=30
-    P9K_BATTERY_STAGES=($'\uf582 ' $'\uf579 ' $'\uf57a ' $'\uf57b ' $'\uf57c ' $'\uf57d ' $'\uf57e ' $'\uf57f' $'\uf580 ' $'\uf581 ' $'\uf578')
-    P9K_BATTERY_LEVEL_BACKGROUND=(darkred orange4 yellow4 yellow4 chartreuse3 green3 green4 darkgreen)
+    POWERLEVEL9K_BATTERY_LOW_THRESHOLD=30
+    POWERLEVEL9K_BATTERY_STAGES=($'\uf582 ' $'\uf579 ' $'\uf57a ' $'\uf57b ' $'\uf57c ' $'\uf57d ' $'\uf57e ' $'\uf57f' $'\uf580 ' $'\uf581 ' $'\uf578')
+    POWERLEVEL9K_BATTERY_LEVEL_BACKGROUND=(darkred orange4 yellow4 yellow4 chartreuse3 green3 green4 darkgreen)
 
-    P9K_DIR_SHORTEN_LENGTH=1
-    P9K_DIR_SHORTEN_DELIMITER=""
-    # P9K_DIR_SHORTEN_STRATEGY=truncate_from_right
-    P9K_DIR_SHORTEN_STRATEGY=truncate_to_unique
+    POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S}"
+    POWERLEVEL9K_DATE_FORMAT="%D{%m/%d}"
 
-    P9K_TIME_FORMAT="%D{%H:%M:%S}"
-    P9K_DATE_FORMAT="%D{%m/%d}"
+    POWERLEVEL9K_USER_ICON="\uF415"
+    POWERLEVEL9K_ROOT_ICON="#"
+    POWERLEVEL9K_SUDO_ICON=$'\uF09C'
 
-    P9K_USER_DEFAULT_ICON="\uF415"
-    P9K_USER_ROOT_ICON="#"
-    P9K_USER_SUDO_ICON=$'\uF09C'
+    POWERLEVEL9K_VI_INSERT_MODE_STRING=""
 fi
 
 zplug "changyuheng/zsh-interactive-cd"
