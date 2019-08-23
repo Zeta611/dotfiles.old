@@ -30,8 +30,14 @@ Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 " Swift deoplete
 Plug 'mitsuse/autocomplete-swift'
 
+" jedi for deoplete-jedi
+Plug 'davidhalter/jedi'
+
 " Python deoplete
 Plug 'deoplete-plugins/deoplete-jedi'
+
+" (De)activate pyenv Python correctly.
+Plug 'lambdalisue/vim-pyenv', { 'for': ['python', 'python3'] }
 
 " clang deoplete
 Plug 'zchee/deoplete-clang'
@@ -246,7 +252,7 @@ let g:polyglot_disabled = ['tex', 'latex']
 " Neomake settings begin
 call neomake#configure#automake('nrwi', 500)
 " let g:neomake_tex_enabled_makers = ['chktex', 'rubberinfo', 'proselint']
-let g:neomake_python_enabled_makers = ['flake8']
+let g:neomake_python_enabled_makers = ['flake8', 'mypy']
 let g:neomake_python_flake8_maker = {
   \ 'exe': expand('~/.pyenv/versions/3.7.3/envs/neovim-python3/bin/flake8'),
   \ 'args': ['--format=default'],
@@ -257,6 +263,9 @@ let g:neomake_python_flake8_maker = {
       \ '%-G%.%#',
   \ 'postprocess': function('neomake#makers#ft#python#Flake8EntryProcess')
   \ }
+let g:neomake_python_mypy_maker = {
+  \ 'exe': expand('~/.pyenv/versions/3.7.3/envs/neovim-python3/bin/mypy'),
+  \ }
 " Neomake settings end
 
 " NERD Commenter settings begin
@@ -264,7 +273,10 @@ let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDAltDelims_java = 1
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+let g:NERDCustomDelimiters = {
+  \ 'c': { 'left': '/**','right': '*/' },
+  \ 'swift': { 'left': '//' }
+  \ }
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
