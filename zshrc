@@ -165,3 +165,6 @@ alias gil='git log'
 
 alias ctags='/usr/local/bin/ctags'
 # zprof
+
+# opam configuration
+test -r /Users/jay/.opam/opam-init/init.zsh && . /Users/jay/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
