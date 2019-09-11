@@ -42,6 +42,9 @@ Plug 'lambdalisue/vim-pyenv', { 'for': ['python', 'python3'] }
 " clang deoplete
 Plug 'zchee/deoplete-clang'
 
+" OCaml deoplete
+Plug 'copy/deoplete-ocaml'
+
 " snippet engine for vim
 Plug 'SirVer/ultisnips'
 
@@ -140,6 +143,9 @@ Plug 'rizzatti/dash.vim'
 
 " emmet abbreviation
 Plug 'mattn/emmet-vim'
+
+" REPL with vim
+Plug 'jpalardy/vim-slime'
 call plug#end()
 
 " make pyenv work with neovim
@@ -231,8 +237,14 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 let llvm_path = systemlist('brew --prefix llvm')[0]
 let g:deoplete#sources#clang#libclang_path = llvm_path . "/lib/libclang.dylib"
 let g:deoplete#sources#clang#clang_header = llvm_path . "/lib/clang/"
-autocmd FileType arduino set filetype=c
+
+let g:deoplete#ignore_sources = {}
+let g:deoplete#ignore_sources.ocaml = ['buffer', 'around', 'member', 'tag']
+
+let g:deoplete#auto_complete_delay = 0
 " deoplete settings end
+
+autocmd FileType arduino set filetype=c
 
 " autocomplete-swift settings begin
 autocmd FileType swift imap <buffer> <C-k> <Plug>(autocomplete_swift_jump_to_placeholder)
@@ -252,6 +264,7 @@ let g:polyglot_disabled = ['tex', 'latex']
 " Neomake settings begin
 call neomake#configure#automake('nrwi', 500)
 " let g:neomake_tex_enabled_makers = ['chktex', 'rubberinfo', 'proselint']
+let g:neomake_ocaml_enabled_makers = ['merlin']
 let g:neomake_python_enabled_makers = ['flake8', 'mypy']
 let g:neomake_python_flake8_maker = {
   \ 'exe': expand('~/.pyenv/versions/3.7.3/envs/neovim-python3/bin/flake8'),
@@ -347,3 +360,43 @@ let g:minimap_highlight='StatusLine'
 
 " Correct syntax highlighting for expl3
 autocmd FileType tex syn match texStatement "\\[a-zA-Z_:@]\+"
+
+" ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
+let s:opam_share_dir = system("opam config var share")
+let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
+
+let s:opam_configuration = {}
+
+function! OpamConfOcpIndent()
+  execute "set rtp^=" . s:opam_share_dir . "/ocp-indent/vim"
+endfunction
+let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
+
+function! OpamConfOcpIndex()
+  execute "set rtp+=" . s:opam_share_dir . "/ocp-index/vim"
+endfunction
+let s:opam_configuration['ocp-index'] = function('OpamConfOcpIndex')
+
+function! OpamConfMerlin()
+  let l:dir = s:opam_share_dir . "/merlin/vim"
+  execute "set rtp+=" . l:dir
+endfunction
+let s:opam_configuration['merlin'] = function('OpamConfMerlin')
+
+let s:opam_packages = ["ocp-indent", "ocp-index", "merlin"]
+let s:opam_check_cmdline = ["opam list --installed --short --safe --color=never"] + s:opam_packages
+let s:opam_available_tools = split(system(join(s:opam_check_cmdline)))
+for tool in s:opam_packages
+  " Respect package order (merlin should be after ocp-index)
+  if count(s:opam_available_tools, tool) > 0
+    call s:opam_configuration[tool]()
+  endif
+endfor
+" ## end of OPAM user-setup addition for vim / base ## keep this line
+"
+autocmd FileType ocaml source /Users/jay/.opam/4.02.3/share/ocp-indent/vim/indent/ocaml.vim
+
+
+" vim-slime settings begin
+let g:slime_target = "tmux"
+" vim-slime settings end
