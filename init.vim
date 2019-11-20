@@ -146,6 +146,9 @@ Plug 'mattn/emmet-vim'
 
 " REPL with vim
 Plug 'jpalardy/vim-slime'
+
+" Easier buffer navigation
+Plug 'jlanzarotta/bufexplorer'
 call plug#end()
 
 " make pyenv work with neovim
@@ -174,8 +177,8 @@ set so=7
 
 " set indentation
 autocmd FileType * set tabstop=4|set shiftwidth=4|set softtabstop=4|set autoindent|set cindent|set expandtab|set smarttab|set smartindent
-autocmd FileType html,xhtml,swift,sh,cpp,tex set tabstop=2|set shiftwidth=2|set softtabstop=2
-autocmd FileType c,go set tabstop=8|set shiftwidth=8|set softtabstop=8|set noexpandtab
+autocmd FileType ocaml,html,xhtml,swift,sh,cpp,tex set tabstop=2|set shiftwidth=2|set softtabstop=2
+autocmd FileType c,go,make set tabstop=8|set shiftwidth=8|set softtabstop=8|set noexpandtab
 
 au FileType gitcommit set tw=1000
 
@@ -245,6 +248,7 @@ let g:deoplete#auto_complete_delay = 0
 " deoplete settings end
 
 autocmd FileType arduino set filetype=c
+autocmd FileType "k--" set filetype=ocaml
 
 " autocomplete-swift settings begin
 autocmd FileType swift imap <buffer> <C-k> <Plug>(autocomplete_swift_jump_to_placeholder)
@@ -332,6 +336,7 @@ autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 " vim-airline settings begin
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
 " vim-airline settings end
 
