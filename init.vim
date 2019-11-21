@@ -108,8 +108,8 @@ Plug 'vim-airline/vim-airline'
 " vim-airline themes
 Plug 'vim-airline/vim-airline-themes'
 
-" gruvbox theme
-Plug 'Zeta611/gruvbox'
+" colorschemes
+Plug 'chriskempson/base16-vim'
 
 " seamless navigation between tmux panes and vim splits
 Plug 'christoomey/vim-tmux-navigator'
@@ -174,6 +174,8 @@ set textwidth=79
 set colorcolumn=79
 
 set so=7
+
+colorscheme base16-synth-midnight-dark
 
 " set indentation
 autocmd FileType * set tabstop=4|set shiftwidth=4|set softtabstop=4|set autoindent|set cindent|set expandtab|set smarttab|set smartindent
@@ -340,11 +342,6 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
 " vim-airline settings end
 
-" gruvbox settings begin
-colorscheme gruvbox
-let g:gruvbox_italic=1
-" gruvbox settings end
-
 " XkbSwitch settings begin
 let g:XkbSwitchEnabled = 1
 let g:XkbSwitchLib = '/usr/local/lib/libInputSourceSwitcher.dylib'
@@ -405,3 +402,19 @@ autocmd FileType ocaml source /Users/jay/.opam/4.02.3/share/ocp-indent/vim/inden
 " vim-slime settings begin
 let g:slime_target = "tmux"
 " vim-slime settings end
+
+" Display all colorschems in base16-vim
+function! DisplayColorSchemes()
+   let currDir = getcwd()
+   exec "cd ~/.local/share/nvim/plugged/base16-vim/colors"
+   for myCol in split(glob("*"), '\n')
+      if myCol =~ '\.vim'
+         let mycol = substitute(myCol, '\.vim', '', '')
+         exec "colorscheme " . mycol
+         exec "redraw!"
+         echo "colorscheme = ". myCol
+         sleep 2
+      endif
+   endfor
+   exec "cd " . currDir
+endfunction
