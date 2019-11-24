@@ -299,6 +299,8 @@ let g:NERDCustomDelimiters = {
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
+
+nnoremap <F10> :NERDTreeToggle<cr>
 " NERD Commenter settings end
 
 " vimtex settings begin
@@ -402,6 +404,10 @@ autocmd FileType ocaml source /Users/jay/.opam/4.02.3/share/ocp-indent/vim/inden
 " vim-slime settings begin
 let g:slime_target = "tmux"
 " vim-slime settings end
+
+" fzf settings begin
+nnoremap <c-p> :FZF<cr>
+" fzf settings end
 
 " Display all colorschems in base16-vim
 function! DisplayColorSchemes()
