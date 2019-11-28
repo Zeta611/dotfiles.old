@@ -22,7 +22,9 @@ Plug 'cohama/lexima.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 
 " smooth scroll
-Plug 'terryma/vim-smooth-scroll'
+" Plug 'psliwka/vim-smoothie'
+" Allows custom mappings
+Plug 'segeljakt/vim-smoothie', { 'branch': 'allow-custom-mappings' }
 
 " asynchronous autocomplete framework
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
@@ -227,12 +229,12 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=#282828
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3c3836
 " Indent Guides settings end
 
-" vim-smooth-scroll settings begin
-noremap <silent> <c-up> :call smooth_scroll#up(&scroll, 0, 2)<CR>
-noremap <silent> <c-down> :call smooth_scroll#down(&scroll, 0, 2)<CR>
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
-" vim-smooth-scroll settings end
+" vim-smoothiesettings begin
+let g:smoothie_use_default_mappings = v:false
+
+nmap <c-down> <Plug>(SmoothieDownwards)
+nmap <c-up> <Plug>(SmoothieUpwards)
+" vim-smoothie settings end
 
 " deoplete settings begin
 let g:deoplete#enable_at_startup = 1
