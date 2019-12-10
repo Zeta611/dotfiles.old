@@ -22,9 +22,7 @@ Plug 'cohama/lexima.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 
 " smooth scroll
-" Plug 'psliwka/vim-smoothie'
-" Allows custom mappings
-Plug 'segeljakt/vim-smoothie', { 'branch': 'allow-custom-mappings' }
+Plug 'psliwka/vim-smoothie'
 
 " asynchronous autocomplete framework
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
@@ -207,6 +205,8 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+
+let mapleader = ","
 " custom keymaps end
 
 " undotree settings begin
@@ -229,13 +229,6 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=#282828
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3c3836
 " Indent Guides settings end
 
-" vim-smoothiesettings begin
-let g:smoothie_use_default_mappings = v:false
-
-nmap <c-down> <Plug>(SmoothieDownwards)
-nmap <c-up> <Plug>(SmoothieUpwards)
-" vim-smoothie settings end
-
 " deoplete settings begin
 let g:deoplete#enable_at_startup = 1
 
@@ -251,6 +244,7 @@ let g:deoplete#ignore_sources.ocaml = ['buffer', 'around', 'member', 'tag']
 let g:deoplete#auto_complete_delay = 0
 " deoplete settings end
 
+autocmd FileType tpp set filetype=cpp
 autocmd FileType arduino set filetype=c
 autocmd FileType "k--" set filetype=ocaml
 
