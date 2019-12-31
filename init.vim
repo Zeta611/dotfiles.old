@@ -149,6 +149,12 @@ Plug 'jpalardy/vim-slime'
 
 " Easier buffer navigation
 Plug 'jlanzarotta/bufexplorer'
+
+" Swap two splits
+Plug 'wesQ3/vim-windowswap'
+
+" Tag browser
+Plug 'majutsushi/tagbar'
 call plug#end()
 
 " make pyenv work with neovim
@@ -326,7 +332,6 @@ let g:tex_conceal="abdgm"
 " tex-conceal settings end
 
 " vim-jsbeautify settings begin
-map <c-f> :call JsBeautify()<cr>
 autocmd FileType javascript noremap <buffer> <c-f> :call JsBeautify()<cr>
 autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
 autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
@@ -404,6 +409,10 @@ let g:slime_target = "tmux"
 " fzf settings begin
 nnoremap <c-p> :FZF<cr>
 " fzf settings end
+
+" Tagbar settings begin
+nnoremap <silent> <F9> :TagbarToggle<CR>
+" Tagbar settings end
 
 " Display all colorschems in base16-vim
 function! DisplayColorSchemes()
