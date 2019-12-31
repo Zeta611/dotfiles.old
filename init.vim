@@ -184,6 +184,10 @@ autocmd FileType c,go,make set tabstop=8|set shiftwidth=8|set softtabstop=8|set 
 
 au FileType gitcommit set tw=1000
 
+autocmd FileType tpp set filetype=cpp
+autocmd FileType arduino set filetype=c
+autocmd FileType "k--" set filetype=ocaml
+
 set list lcs=tab:\┆\ ,eol:$,extends:>,precedes:<,trail:~
 
 if has("syntax")
@@ -243,10 +247,6 @@ let g:deoplete#ignore_sources.ocaml = ['buffer', 'around', 'member', 'tag']
 
 let g:deoplete#auto_complete_delay = 0
 " deoplete settings end
-
-autocmd FileType tpp set filetype=cpp
-autocmd FileType arduino set filetype=c
-autocmd FileType "k--" set filetype=ocaml
 
 " autocomplete-swift settings begin
 autocmd FileType swift imap <buffer> <C-k> <Plug>(autocomplete_swift_jump_to_placeholder)

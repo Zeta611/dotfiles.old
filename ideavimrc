@@ -1,0 +1,23 @@
+set ignorecase
+set smartcase
+
+set hlsearch
+set showmode
+
+" custom keymaps begin
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+let mapleader = '\'
+" let mapleader = ','
+" custom keymaps end
+
+" IdeaVimExtension settings begin
+set keep-english-in-normal-and-restore-in-insert
+" IdeaVimExtension settings end
+
+" IdeaVim-EasyMotion settings begin
+set easymotion
+" IdeaVim-EasyMotion settings end
