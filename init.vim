@@ -1,158 +1,105 @@
 call plug#begin('~/.local/share/nvim/plugged')
 " better dot repeat
 Plug 'tpope/vim-repeat'
-
 " visualize undo branches
 Plug 'mbbill/undotree'
-
 " faster motion
 Plug 'easymotion/vim-easymotion'
-
 " easily delete, change, and add surroundings.
 Plug 'tpope/vim-surround'
-
 " tint parentheses
 Plug 'junegunn/rainbow_parentheses.vim'
-
 " autoclose pairs
-" Plug 'Raimondi/delimitMate'
 Plug 'cohama/lexima.vim'
-
 " display indentation
 Plug 'nathanaelkane/vim-indent-guides'
-
 " smooth scroll
 Plug 'psliwka/vim-smoothie'
-
 " asynchronous autocomplete framework
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-
 " Swift deoplete
 Plug 'mitsuse/autocomplete-swift'
-
 " jedi for deoplete-jedi
 Plug 'davidhalter/jedi'
-
 " Python deoplete
 Plug 'deoplete-plugins/deoplete-jedi'
-
 " (De)activate pyenv Python correctly.
 Plug 'lambdalisue/vim-pyenv', { 'for': ['python', 'python3'] }
-
 " clang deoplete
 Plug 'zchee/deoplete-clang'
-
 " OCaml deoplete
 Plug 'copy/deoplete-ocaml'
-
 " snippet engine for vim
 Plug 'SirVer/ultisnips'
-
 " snippets
 Plug 'honza/vim-snippets'
-
 " language packs
 Plug 'sheerun/vim-polyglot'
-
 " syntax checker
 Plug 'neomake/neomake'
-
 " commenter
 Plug 'scrooloose/nerdcommenter'
-
 " multiple cursors for vim
 Plug 'terryma/vim-multiple-cursors'
-
 " a file system explorer for vim
 Plug 'scrooloose/nerdtree'
-
 " shows git status flags in NERDTree
 Plug 'Xuyuanp/nerdtree-git-plugin'
-
 " shows a git diff in the gutter
-" Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-signify'
-
 " vim syntax, indent, and filetype plugin files for git
 Plug 'tpope/vim-git'
-
 " git wrapper
 Plug 'tpope/vim-fugitive'
-
 " better git commit buffer
 Plug 'rhysd/committia.vim'
-
 " LaTeX with vim
 Plug 'lervag/vimtex'
-
 " more conceal feature for LaTeX
 Plug 'KeitaNakamura/tex-conceal.vim'
-
 " javascript refactor
 Plug 'maksimr/vim-jsbeautify'
-
 " fuzzy finder
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
-
 Plug 'junegunn/fzf.vim'
-
 " gitignore file generation with fuzzy finder interface
 Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
-
 " use Nerd Fonts in vim
 Plug 'ryanoasis/vim-devicons'
-
 " status bar for vim
 Plug 'vim-airline/vim-airline'
-
 " vim-airline themes
 Plug 'vim-airline/vim-airline-themes'
-
 " colorschemes
 Plug 'chriskempson/base16-vim'
-
 " seamless navigation between tmux panes and vim splits
 Plug 'christoomey/vim-tmux-navigator'
-
 " switch to English keyboard automatically
 Plug 'lyokha/vim-xkbswitch'
-
 " compiling, uploading, and debugging arduino sketches
 Plug 'stevearc/vim-arduino'
-
 " vim time tracking via WakaTime
 Plug 'wakatime/vim-wakatime'
-
 " auto save changes to disk every time a buffer has been modified
 Plug 'vim-scripts/vim-auto-save'
-
 " distraction-free writing
 Plug 'junegunn/goyo.vim'
-
 " highlight current line
 Plug 'junegunn/limelight.vim'
-
 " Sublime Text like minimap
 Plug 'severin-lemaignan/vim-minimap'
-
 " Carbon plugin
 Plug 'kristijanhusak/vim-carbon-now-sh'
-
 " Dash plugin
 Plug 'rizzatti/dash.vim'
-
 " emmet abbreviation
 Plug 'mattn/emmet-vim'
-
 " REPL with vim
 Plug 'jpalardy/vim-slime'
-
 " Easier buffer navigation
 Plug 'jlanzarotta/bufexplorer'
-
 " Swap two splits
 Plug 'wesQ3/vim-windowswap'
-
 " Tag browser
 Plug 'majutsushi/tagbar'
 call plug#end()
