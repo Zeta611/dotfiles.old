@@ -217,6 +217,11 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
 let mapleader = ","
+
+nnoremap <A-k> :m .-2<CR>
+nnoremap <A-j> :m .+1<CR>
+nnoremap <A-h> xhP
+nnoremap <A-l> xp
 " custom keymaps end
 
 " undotree settings begin
