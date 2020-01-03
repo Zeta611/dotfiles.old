@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # zmodload zsh/zprof
 # Load zplug
 export LANG=ko_KR.UTF-8
@@ -12,7 +19,7 @@ export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} $(brew --prefix libffi)/lib/pkgconfig
 
 export PATH=/usr/local/opt/ruby/bin:$PATH
 PATH=$PATH:$(ruby -e 'puts Gem.bindir')
-export TERM="xterm-256color"
+[[ $TMUX != "" ]] && export TERM="screen-256color"
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
@@ -135,5 +142,24 @@ alias gil='git log'
 alias ctags='/usr/local/bin/ctags'
 # zprof
 
+function truecolor() {
+    awk 'BEGIN{
+        s="/\\/\\/\\/\\/\\"; s=s s s s s s s s;
+        for (colnum = 0; colnum<77; colnum++) {
+            r = 255-(colnum*255/76);
+            g = (colnum*510/76);
+            b = (colnum*255/76);
+            if (g>255) g = 510-g;
+            printf "\033[48;2;%d;%d;%dm", r,g,b;
+            printf "\033[38;2;%d;%d;%dm", 255-r,255-g,255-b;
+            printf "%s\033[0m", substr(s,colnum+1,1);
+        }
+        printf "\n";
+    }'
+}
+
 # opam configuration
 test -r /Users/jay/.opam/opam-init/init.zsh && . /Users/jay/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
