@@ -153,22 +153,29 @@ if has("persistent_undo")
 endif
 
 " custom keymaps begin
+let mapleader = ","
+
+" resize splits
 nnoremap <Left> :vertical resize -5<CR>
 nnoremap <Right> :vertical resize +5<CR>
 nnoremap <Up> :resize -5<CR>
 nnoremap <Down> :resize +5<CR>
 
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
+" move splits
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 
-let mapleader = ","
-
+" move line/column
 nnoremap <A-k> :m .-2<CR>
 nnoremap <A-j> :m .+1<CR>
 nnoremap <A-h> xhP
 nnoremap <A-l> xp
+
+" make upper case
+nnoremap <A-u> viwU
+inoremap <A-u> <ESC>viwUi
 " custom keymaps end
 
 " undotree settings begin
