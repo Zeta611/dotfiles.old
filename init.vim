@@ -243,6 +243,16 @@ function! DisplayColorSchemes()
 endfunction
 
 " coc.nvim settings begin
+let g:coc_global_extensions = [
+\ 'coc-vimlsp',
+\ 'coc-snippets',
+\ 'coc-marketplace',
+\ 'coc-highlight',
+\ 'coc-yaml',
+\ 'coc-texlab',
+\ 'coc-python',
+\ 'coc-json'
+\ ]
 " Highlight symbol under cursor on CursorHold
 hi CocHighlightText guibg=#444433
 autocmd CursorHold * silent call CocActionAsync('highlight')
