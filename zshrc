@@ -10,12 +10,12 @@ fi
 export LANG=ko_KR.UTF-8
 export LC_ALL=ko_KR.UTF-8
 # For compilers to find zlib you may need to set:
-export LDFLAGS="${LDFLAGS} -L/usr/local/opt/zlib/lib"
-export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include"
+# export LDFLAGS="${LDFLAGS} -L/usr/local/opt/zlib/lib"
+# export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include"
 
 # For pkg-config to find zlib you may need to set:
-export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
-export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} $(brew --prefix libffi)/lib/pkgconfig/"
+# export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
+# export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} $(brew --prefix libffi)/lib/pkgconfig/"
 
 export PATH=/usr/local/opt/ruby/bin:$PATH
 PATH=$PATH:$(ruby -e 'puts Gem.bindir')
@@ -24,28 +24,18 @@ export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
 zplug "zsh-users/zsh-autosuggestions"
-
 zplug "zdharma/fast-syntax-highlighting", defer:2
-
 zplug "Tarrasch/zsh-bd"
-
 zplug "wting/autojump"
-
 zplug "zuxfoucault/colored-man-pages_mod", lazy:on
-
 zplug "b4b4r07/emoji-cli", lazy:on
-
 if zplug check b4b4r07/emoji-cli; then
     EMOJI_CLI_KEYBIND="^E"
 fi
-
 zplug "romkatv/powerlevel10k", \
     use:powerlevel9k.zsh-theme
-
 zplug "changyuheng/zsh-interactive-cd"
-
 zplug "wbingli/zsh-wakatime"
-
 zplug load
 
 # compinit check for rebuilding the dump & calling compaudit once a day
@@ -76,25 +66,13 @@ else
 fi
 
 # thefuck
-fuck() {
-    unset -f fuck
-    eval $(thefuck --alias)
-    fuck "$@"
-}
+eval $(thefuck --alias)
 
 # colorls configuration
-colorls() {
-    unset -f colorls
-    source $(dirname $(gem which colorls))/tab_complete.sh
-    colorls "$@"
-}
+source $(dirname $(gem which colorls))/tab_complete.sh
 
  # autojump configuration
-j() {
-    unset -f j
-    [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-    j "$@"
-}
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 # fzf configuration
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
