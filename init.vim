@@ -251,7 +251,8 @@ let g:coc_global_extensions = [
 \ 'coc-yaml',
 \ 'coc-texlab',
 \ 'coc-python',
-\ 'coc-json'
+\ 'coc-json',
+\ 'coc-calc'
 \ ]
 " Highlight symbol under cursor on CursorHold
 hi CocHighlightText guibg=#444433
