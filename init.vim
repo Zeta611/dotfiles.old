@@ -92,6 +92,10 @@ inoremap <A-u> <ESC>viwUi
 
 " escape terminal emulator using ESC
 tnoremap <ESC> <C-\><C-n>
+
+" Edit & source vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 " custom keymaps end
 
 " undotree settings begin
