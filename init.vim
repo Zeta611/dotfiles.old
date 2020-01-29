@@ -136,7 +136,7 @@ nnoremap <F10> :NERDTreeToggle<cr>
 
 " vimtex settings begin
 let g:vimtex_view_method = 'skim'
-let g:vimtex_compiler_progname = '/Users/jay/.pyenv/versions/neovim-python3/bin/nvr'
+let g:vimtex_compiler_progname = '~/.pyenv/versions/neovim-python3/bin/nvr'
 let g:vimtex_quickfix_mode = 2
 let g:vimtex_quickfix_autoclose_after_keystrokes = 1
 let g:vimtex_view_skim_activate = 1
@@ -169,7 +169,7 @@ let g:airline_powerline_fonts = 1
 
 " XkbSwitch settings begin
 let g:XkbSwitchEnabled = 1
-let g:XkbSwitchLib = '/usr/local/lib/libInputSourceSwitcher.dylib'
+let g:XkbSwitchLib = expand('~/lib/libInputSourceSwitcher.dylib')
 " XkbSwitch settings end
 
 " AutoSave settings begin
@@ -215,11 +215,11 @@ endfor
 " ## end of OPAM user-setup addition for vim / base ## keep this line
 " ## added by OPAM user-setup for vim / ocp-indent ## 16a9c521ea63eee4413174fe9893db6c ## you can edit, but keep this line
 if count(s:opam_available_tools,"ocp-indent") == 0
-  source "/Users/jay/.opam/4.09.0/share/ocp-indent/vim/indent/ocaml.vim"
+  source expand("~/.opam/4.09.0/share/ocp-indent/vim/indent/ocaml.vim")
 endif
 " ## end of OPAM user-setup addition for vim / ocp-indent ## keep this line
 "
-autocmd FileType ocaml source /Users/jay/.opam/4.09.0/share/ocp-indent/vim/indent/ocaml.vim
+autocmd FileType ocaml source expand('~/.opam/4.09.0/share/ocp-indent/vim/indent/ocaml.vim')
 
 
 " vim-slime settings begin

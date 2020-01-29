@@ -5,8 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# zmodload zsh/zprof
-# Load zplug
 export LANG=ko_KR.UTF-8
 export LC_ALL=ko_KR.UTF-8
 # For compilers to find zlib you may need to set:
@@ -17,8 +15,8 @@ export LC_ALL=ko_KR.UTF-8
 # export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
 # export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} $(brew --prefix libffi)/lib/pkgconfig/"
 
-export PATH=/usr/local/opt/ruby/bin:$PATH
-PATH=$PATH:$(ruby -e 'puts Gem.bindir')
+# export PATH=/usr/local/opt/ruby/bin:$PATH
+# PATH=$PATH:$(ruby -e 'puts Gem.bindir')
 [[ $TMUX != "" ]] && export TERM="screen-256color"
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
@@ -26,44 +24,55 @@ source $ZPLUG_HOME/init.zsh
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zdharma/fast-syntax-highlighting", defer:2
 zplug "Tarrasch/zsh-bd"
-zplug "wting/autojump"
-zplug "zuxfoucault/colored-man-pages_mod", lazy:on
 zplug "b4b4r07/emoji-cli", lazy:on
 if zplug check b4b4r07/emoji-cli; then
     EMOJI_CLI_KEYBIND="^E"
 fi
-zplug "romkatv/powerlevel10k", \
-    use:powerlevel9k.zsh-theme
+zplug "romkatv/powerlevel10k", as:theme, depth:1
 zplug "changyuheng/zsh-interactive-cd"
 zplug "wbingli/zsh-wakatime"
+zplug "plugins/thefuck", from:oh-my-zsh
 zplug load
 
-# compinit check for rebuilding the dump & calling compaudit once a day
-autoload -Uz compinit
-if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
-  compinit
-else
-  compinit -C
-fi
-
 # custom script location
-export PATH="$HOME/Developer/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 # load pyenv
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+if which pyenv-virtualenv-init > /dev/null; then
+  eval "$(pyenv virtualenv-init -)"
+fi
+
+# Setup pipenv
+if command -v pipenv 1>/dev/null 2>&1; then
+  eval "$(pipenv --completion)"
+fi
+
+# Setup pipx
+if command -v pipx 1>/dev/null 2>&1; then
+  autoload -U bashcompinit
+  bashcompinit
+  eval "$(register-python-argcomplete pipx)"
+fi
+
+# Setup rbenv
+if command -v rbenv 1>/dev/null 2>&1; then
+  eval "$(rbenv init -)"
+fi
 
 # gpg
 export GPG_TTY=$(tty)
 
-if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
-    source ~/.gnupg/.gpg-agent-info
-    export GPG_AGENT_INFO
-else
-    {
-        eval $(gpg-agent --daemon)
-    } &> /dev/null
-fi
+# if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
+#     source ~/.gnupg/.gpg-agent-info
+#     export GPG_AGENT_INFO
+# else
+#     {
+#         eval $(gpg-agent --daemon)
+#     } &> /dev/null
+# fi
 
 # thefuck
 eval $(thefuck --alias)
@@ -72,7 +81,9 @@ eval $(thefuck --alias)
 source $(dirname $(gem which colorls))/tab_complete.sh
 
  # autojump configuration
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+if command -v autojump 1>/dev/null 2>&1; then
+  [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+fi
 
 # fzf configuration
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -115,10 +126,7 @@ alias gic='git commit -S'
 alias gica='git commit -a -S'
 alias gip='git push'
 alias gipf='git push -f'
-alias gil='git log --graph'
-
-alias ctags='/usr/local/bin/ctags'
-# zprof
+alias gil='git log'
 
 function truecolor() {
     awk 'BEGIN{

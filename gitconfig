@@ -2,9 +2,9 @@
 	email = jaeho.lee@snu.ac.kr
 	name = Jaeho Lee
     ; For iMac:
-    ; signingkey = 1244CA15AE08F7852EC1D5D79B07113F7E2F533E
+    signingkey = 2BCD3E60C53CF2B2B13E4E4EDD1A39A2E4305C67
     ; For MacBook Pro:
-    signingkey = 663EF46CCBC101152DCD12069E578E261B34C5F9
+    ; signingkey = 663EF46CCBC101152DCD12069E578E261B34C5F9
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = nvim
@@ -15,13 +15,6 @@
 [commit]
 	gpgsign = true
 [alias]
-	lg = !"git lg1"
-	lg1 = !"git lg1-specific --all"
-	lg2 = !"git lg2-specific --all"
-	lg3 = !"git lg3-specific --all"
-
-	lg1-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
-	lg2-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
-	lg3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
+	log = ! git log --graph --color | emojify | less -r
 [tag]
 	forceSignAnnotated = true
