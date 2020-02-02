@@ -35,7 +35,7 @@ zplug "plugins/thefuck", from:oh-my-zsh
 zplug load
 
 # custom script location
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/opt/grep/libexec/gnubin:$PATH"
 
 # load pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
