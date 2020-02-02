@@ -65,8 +65,8 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'ryanoasis/vim-devicons'
 " display indentation
 Plug 'nathanaelkane/vim-indent-guides'
-" colorschemes
-Plug 'chriskempson/base16-vim'
+" colorscheme
+Plug 'rakr/vim-one'
 " a file system explorer for vim
 Plug 'scrooloose/nerdtree'
 " view and search LSP simbols

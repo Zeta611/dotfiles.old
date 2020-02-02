@@ -17,7 +17,7 @@ export LC_ALL=ko_KR.UTF-8
 
 # export PATH=/usr/local/opt/ruby/bin:$PATH
 # PATH=$PATH:$(ruby -e 'puts Gem.bindir')
-[[ $TMUX != "" ]] && export TERM="screen-256color"
+[[ $TMUX != "" ]] && export TERM="tmux-256color"
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 

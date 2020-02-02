@@ -18,6 +18,9 @@ if exists('+termguicolors')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
+
+colorscheme one
+let g:one_allow_italics = 1
 set background=dark
 
 set ignorecase
@@ -31,18 +34,17 @@ set so=7
 set noshowmode
 set shortmess+=c
 
-colorscheme base16-synth-midnight-dark
-
 " set indentation
 autocmd FileType * set tabstop=4|set shiftwidth=4|set softtabstop=4|set autoindent|set cindent|set expandtab|set smarttab|set smartindent
-autocmd FileType ocaml,html,xhtml,sh,tex set tabstop=2|set shiftwidth=2|set softtabstop=2
+autocmd FileType ocaml,html,xhtml,sh,tex,ruby,yaml set tabstop=2|set shiftwidth=2|set softtabstop=2
 autocmd FileType c,go,make set tabstop=8|set shiftwidth=8|set softtabstop=8|set noexpandtab
 
-au FileType gitcommit set tw=1000
+autocmd FileType gitcommit set tw=1000
 
 autocmd FileType tpp set filetype=cpp
 autocmd FileType arduino set filetype=c
 autocmd FileType "k--" set filetype=ocaml
+autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile set filetype=ruby
 
 set list lcs=tab:\┆\ ,eol:$,extends:>,precedes:<,trail:~
 
@@ -136,7 +138,7 @@ nnoremap <F10> :NERDTreeToggle<cr>
 
 " vimtex settings begin
 let g:vimtex_view_method = 'skim'
-let g:vimtex_compiler_progname = '~/.pyenv/versions/neovim-python3/bin/nvr'
+let g:vimtex_compiler_progname = expand('~/.pyenv/versions/neovim-python3/bin/nvr')
 let g:vimtex_quickfix_mode = 2
 let g:vimtex_quickfix_autoclose_after_keystrokes = 1
 let g:vimtex_view_skim_activate = 1
@@ -165,6 +167,7 @@ autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
+let g:airline_theme='one'
 " vim-airline settings end
 
 " XkbSwitch settings begin
@@ -256,7 +259,8 @@ let g:coc_global_extensions = [
 \ 'coc-texlab',
 \ 'coc-python',
 \ 'coc-json',
-\ 'coc-calc'
+\ 'coc-calc',
+\ 'coc-solargraph'
 \ ]
 " Highlight symbol under cursor on CursorHold
 hi CocHighlightText guibg=#444433
@@ -300,6 +304,8 @@ nnoremap <silent> <leader>ext :<C-u>CocList extensions<cr>
 nnoremap <silent> <leader>com :<C-u>CocList commands<cr>
 " Find symbol of current document
 nnoremap <silent> <leader>out :<C-u>CocList outline<cr>
+" Open marketplace
+nnoremap <silent> <leader>mar :<C-u>CocList marketplace<cr>
 " coc.nvim settings end
 
 " Vista settings begin

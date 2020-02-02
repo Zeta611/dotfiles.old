@@ -70,15 +70,6 @@ else
   curl -fsSL https://raw.githubusercontent.com/wakatime/xcode-wakatime/master/install.sh | sh
 fi
 
-# Install XQuartz via Hombrew Cask if not already installed
-# echo -e "\n${highlight}Installing XQuartz...${reset}"
-# if [ -d /Applications/Utilities/XQuartz.app ]; then
-#   echo "${alert}XQuartz already installed!${reset}"
-# else
-#   # brew cask install xquartz
-#   echo "${highlight}XQuartz installed!${reset}"
-# fi
-
 # Setup Pyton
 echo -e "\n${highlight}Setting Python...${reset}"
 # Install pyenv
@@ -226,7 +217,7 @@ rbenv global $LATEST_RUBY
 echo "${highlight}Ruby $LATEST_RUBY installed!${reset}"
 
 # Install CocoaPods
-if [ -x "$(command -v cocoapods)" ]; then
+if [ -x "$(command -v pod)" ]; then
   echo "${alert}CocoaPods already installed!${reset}"
 else
   gem install cocoapods
@@ -261,6 +252,15 @@ else
   gem install neovim
   rbenv rehash
   echo "${highlight}neovim-ruby installed!${reset}"
+fi
+
+# Install solargraph
+if [ -x "$(gem query -q solargraph)" ]; then
+  echo "${alert}solargraph already installed!${reset}"
+else
+  gem install solargraph
+  rbenv rehash
+  echo "${highlight}solargraph installed!${reset}"
 fi
 
 # Setup OCaml
@@ -366,6 +366,9 @@ if brew cask ls --versions mactex > /dev/null; then
   echo "${alert}MacTeX already installed!${reset}"
 else
   brew cask install mactex
+  sudo tlmgr option repository http://mirror.navercorp.com/CTAN/systems/texlive/tlnet
+  sudo tlmgr repository add http://ftp.ktug.org/KTUG/texlive/tlnet ktug
+  sudo tlmgr pinning add ktug "*"
   echo "${highlight}MacTeX installed!${reset}"
 fi
 
@@ -433,6 +436,15 @@ mkdir -p "$HOME/.local/share/nvim/site/autoload"
 [ -f "$HOME/.local/share/nvim/site/autoload/plug.vim" ] || curl -fLo "$HOME/.local/share/nvim/site/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 nvim +PlugInstall +qall
 echo "${highlight}vim-plug for Neovim set!${reset}"
+
+# Setup tmux
+infocmp tmux > /dev/null
+if [ $? -eq 0 ]; then
+  echo "${alert}tmux terminfo entry already exists!${reset}"
+else
+  /usr/local/opt/ncurses/bin/tic -x tmux.terminfo
+  echo "${highlight}tmux terminfo entry created!${reset}"
+fi
 
 # Install Adobe Creative Cloud
 echo -e "\n${highlight}Installing Adobe Creative Cloud...${reset}"
