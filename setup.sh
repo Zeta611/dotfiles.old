@@ -47,8 +47,8 @@ fi
 # Tap Homebrew taps
 echo -e "\n${highlight}Tapping essential taps...${reset}"
 grep -qxF "homebrew/cask" <(brew tap) || brew tap homebrew/cask
-# grep -qxF "homebrew/cask-fonts" <(brew tap) || brew tap homebrew/cask-fonts
-# grep -qxF "homebrew/bundle" <(brew tap) || brew tap homebrew/bundle
+grep -qxF "homebrew/cask-fonts" <(brew tap) || brew tap homebrew/cask-fonts
+grep -qxF "homebrew/bundle" <(brew tap) || brew tap homebrew/bundle
 
 # Install Hombrew package 'mas-cli' if not already installed
 echo -e "\n${highlight}Installing mas-cli...${reset}"
@@ -78,9 +78,9 @@ if brew ls --versions pyenv > /dev/null; then
   echo "${alert}Homebrew package 'pyenv' is already installed!${reset}"
 else
   brew install pyenv
-  eval "$(pyenv init -)"
   echo "${highlight}pyenv installed!${reset}"
 fi
+eval "$(pyenv init -)"
 
 # Install pyenv-virtualenv
 echo -e "\n${highlight}Installing pyenv-virtualenv...${reset}"
@@ -88,9 +88,9 @@ if brew ls --versions pyenv-virtualenv > /dev/null; then
   echo "${alert}Homebrew package 'pyenv-virtualenv' is already installed!${reset}"
 else
   brew install pyenv-virtualenv
-  eval "$(pyenv virtualenv-init -)"
   echo "${highlight}pyenv-virtualenv installed!${reset}"
 fi
+eval "$(pyenv virtualenv-init -)"
 
 # Recommended to install before Python: openssl readline sqlite3 xz zlib
 echo -e "\n${highlight}Installing openssl...${reset}"
@@ -140,8 +140,6 @@ fi
 
 # Install the latest Python 2.7 and 3
 echo -e "\n${highlight}Installing the latest Python 2.7...${reset}"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 LATEST_PYTHON2=$(pyenv latest --print 2.7)
 grep -qF $LATEST_PYTHON2 <(pyenv versions) || pyenv install $LATEST_PYTHON2
 pyenv global $LATEST_PYTHON2
@@ -170,9 +168,9 @@ if brew ls --versions pipenv > /dev/null; then
   echo "${alert}Homebrew package 'pipenv' is already installed!${reset}"
 else
   brew install pipenv
-  eval "$(pipenv --completion)"
   echo "${highlight}pipenv installed!${reset}"
 fi
+eval "$(pipenv --completion)"
 
 # Install pipx
 echo -e "\n${highlight}Installing pipx...${reset}"
@@ -183,9 +181,9 @@ else
   pipx ensurepath
   autoload -U bashcompinit
   bashcompinit
-  eval "$(register-python-argcomplete pipx)"
   echo "${highlight}pipx installed!${reset}"
 fi
+eval "$(register-python-argcomplete pipx)"
 
 # Setup Ruby
 echo -e "\n${highlight}Setting Ruby...${reset}"
@@ -195,9 +193,9 @@ if brew ls --versions rbenv > /dev/null; then
   echo "${alert}Homebrew package 'rbenv' is already installed!${reset}"
 else
   brew install rbenv
-  eval "$(rbenv init -)"
   echo "${highlight}rbenv installed!${reset}"
 fi
+eval "$(rbenv init -)"
 
 # Find the latest Ruby for rbenv
 echo -e "\n${highlight}Installing xxenv-latest...${reset}"
@@ -278,10 +276,10 @@ if brew ls --versions opam > /dev/null; then
   echo "${alert}Homebrew package 'OPAM' is already installed!${reset}"
 else
   brew install opam
-  opam init -a --shell=zsh
-  eval $(opam env)
+  opam init --shell=zsh
   echo "${highlight}OPAM installed!${reset}"
 fi
+eval $(opam env)
 
 # Install OCaml
 echo -e "\n${highlight}Installing OCaml...${reset}"
@@ -289,9 +287,9 @@ if [ -x "$(command -v ocaml)" ]; then
   echo "${alert}OCaml already installed!${reset}"
 else
   opam switch create 4.09.0
-  eval $(opam env)
   echo "${highlight}OCaml installed!${reset}"
 fi
+eval $(opam env)
 
 # Install OCaml tools
 # Install ocp-indent
@@ -442,7 +440,7 @@ infocmp tmux > /dev/null
 if [ $? -eq 0 ]; then
   echo "${alert}tmux terminfo entry already exists!${reset}"
 else
-  /usr/local/opt/ncurses/bin/tic -x tmux.terminfo
+  tic -x tmux.terminfo
   echo "${highlight}tmux terminfo entry created!${reset}"
 fi
 

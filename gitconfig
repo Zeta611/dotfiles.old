@@ -2,9 +2,9 @@
 	email = jaeho.lee@snu.ac.kr
 	name = Jaeho Lee
     ; For iMac:
-    signingkey = 2BCD3E60C53CF2B2B13E4E4EDD1A39A2E4305C67
+    ; signingkey = 2BCD3E60C53CF2B2B13E4E4EDD1A39A2E4305C67
     ; For MacBook Pro:
-    ; signingkey = 663EF46CCBC101152DCD12069E578E261B34C5F9
+    signingkey = 5D55173CC8748CFD5CDE187866B3984E42EC19CB
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = nvim
