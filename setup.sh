@@ -364,6 +364,7 @@ if brew cask ls --versions mactex > /dev/null; then
   echo "${alert}MacTeX already installed!${reset}"
 else
   brew cask install mactex
+  export PATH="$PATH:/Library/TeX/texbin"
   sudo tlmgr option repository http://mirror.navercorp.com/CTAN/systems/texlive/tlnet
   sudo tlmgr repository add http://ftp.ktug.org/KTUG/texlive/tlnet ktug
   sudo tlmgr pinning add ktug "*"
