@@ -126,7 +126,7 @@ alias gic='git commit -S'
 alias gica='git commit -a -S'
 alias gip='git push'
 alias gipf='git push -f'
-alias gil='git log'
+alias gil='git lg'
 
 function truecolor() {
     awk 'BEGIN{

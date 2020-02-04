@@ -15,6 +15,6 @@
 [commit]
 	gpgsign = true
 [alias]
-	log = ! git log --graph --color | emojify | less -r
+    lg = !git log --graph --color | emojify | less -r
 [tag]
 	forceSignAnnotated = true
