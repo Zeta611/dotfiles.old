@@ -402,6 +402,8 @@ echo -e "\n${highlight}Creating symlinks...${reset}"
 [ -f "$HOME/.config/nvim/coc-settings.json" ] || ln -s "$HOME/.dotfiles/coc-settings.json" "$HOME/.config/nvim/coc-settings.json"
 [ -f "$HOME/.leptonrc" ] || ln -s "$HOME/.dotfiles/leptonrc" "$HOME/.leptonrc"
 [ -f "$HOME/.gnupg/gpg-agent.conf" ] || ln -s "$HOME/.dotfiles/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
+[ -f "$HOME/.yabairc" ] || ln -s "$HOME/.dotfiles/yabairc" "$HOME/.yabairc"
+[ -f "$HOME/.skhdrc" ] || ln -s "$HOME/.dotfiles/skhdrc" "$HOME/.skhdrc"
 
 # Change shell to zsh if it already isn't
 [ "$SHELL" != /usr/local/bin/zsh ] && [ "$SHELL" != /bin/zsh ] && chsh -s $(which zsh)
