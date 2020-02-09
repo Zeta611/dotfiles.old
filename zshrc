@@ -127,6 +127,7 @@ alias gica='git commit -a -S'
 alias gip='git push'
 alias gipf='git push -f'
 alias gil='git lg'
+alias gicl='git clone'
 
 function truecolor() {
     awk 'BEGIN{
