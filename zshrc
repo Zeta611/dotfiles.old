@@ -150,3 +150,11 @@ test -r /Users/jay/.opam/opam-init/init.zsh && . /Users/jay/.opam/opam-init/init
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Display the output of `python --version` next to the virtual environment name.
+typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_PYTHON_VERSION=true
+typeset -g POWERLEVEL9K_VIRTUALENV_{LEFT,RIGHT}_DELIMITER=
+
+# Hide `pyenv` segment if its content has no dots ('.').
+typeset -g POWERLEVEL9K_PYENV_CONTENT_EXPANSION='${(M)P9K_CONTENT:#*.*}'
+typeset -g POWERLEVEL9K_PYENV_VISUAL_IDENTIFIER_EXPANSION='${${(M)P9K_CONTENT:#*.*}:+${P9K_VISUAL_IDENTIFIER// }}'
