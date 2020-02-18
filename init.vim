@@ -4,6 +4,7 @@ source ~/.config/nvim/plugins.vim
 let g:python_host_prog = expand('~/.pyenv/versions/neovim-python2/bin/python')
 let g:python3_host_prog = expand('~/.pyenv/versions/neovim-python3/bin/python')
 
+" below two commands are redundant in Neovim
 set nocompatible
 filetype plugin indent on
 
@@ -138,10 +139,10 @@ nnoremap <F10> :NERDTreeToggle<cr>
 
 " vimtex settings begin
 let g:vimtex_view_method = 'skim'
-let g:vimtex_compiler_progname = expand('~/.pyenv/versions/neovim-python3/bin/nvr')
+" let g:vimtex_compiler_progname = expand('~/.pyenv/versions/neovim-python3/bin/nvr')
 let g:vimtex_quickfix_mode = 2
 let g:vimtex_quickfix_autoclose_after_keystrokes = 1
-let g:vimtex_view_skim_activate = 1
+" let g:vimtex_view_skim_activate = 1
 
 let g:vimtex_compiler_latexmk = {
     \ 'options' : [
@@ -310,3 +311,9 @@ nnoremap <silent> <leader>mar :<C-u>CocList marketplace<cr>
 " Vista settings begin
 nnoremap <silent> <leader>v :Vista<cr>
 " Vista settings end
+
+" vim-smoothie settings begin
+let g:smoothie_no_default_mappings = v:true
+silent! nmap <unique> <C-D> <Plug>(SmoothieDownwards)
+silent! nmap <unique> <C-U> <Plug>(SmoothieUpwards)
+" vim-smoothie settings end
