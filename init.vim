@@ -258,6 +258,7 @@ let g:coc_global_extensions = [
 \ 'coc-python',
 \ 'coc-snippets',
 \ 'coc-solargraph',
+\ 'coc-sourcekit',
 \ 'coc-texlab',
 \ 'coc-vimlsp',
 \ 'coc-yaml'
