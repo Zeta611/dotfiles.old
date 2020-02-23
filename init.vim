@@ -251,16 +251,16 @@ endfunction
 
 " coc.nvim settings begin
 let g:coc_global_extensions = [
-\ 'coc-vimlsp',
-\ 'coc-snippets',
-\ 'coc-marketplace',
-\ 'coc-highlight',
-\ 'coc-yaml',
-\ 'coc-texlab',
-\ 'coc-python',
-\ 'coc-json',
 \ 'coc-calc',
-\ 'coc-solargraph'
+\ 'coc-highlight',
+\ 'coc-json',
+\ 'coc-marketplace',
+\ 'coc-python',
+\ 'coc-snippets',
+\ 'coc-solargraph',
+\ 'coc-texlab',
+\ 'coc-vimlsp',
+\ 'coc-yaml'
 \ ]
 " Highlight symbol under cursor on CursorHold
 hi CocHighlightText guibg=#444433
