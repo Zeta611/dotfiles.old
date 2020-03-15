@@ -158,3 +158,5 @@ typeset -g POWERLEVEL9K_VIRTUALENV_{LEFT,RIGHT}_DELIMITER=
 # Hide `pyenv` segment if its content has no dots ('.').
 typeset -g POWERLEVEL9K_PYENV_CONTENT_EXPANSION='${(M)P9K_CONTENT:#*.*}'
 typeset -g POWERLEVEL9K_PYENV_VISUAL_IDENTIFIER_EXPANSION='${${(M)P9K_CONTENT:#*.*}:+${P9K_VISUAL_IDENTIFIER// }}'
+
+export PATH="$HOME/Library/Android/sdk/platform-tools/:$PATH"

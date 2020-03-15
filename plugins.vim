@@ -31,6 +31,8 @@ Plug 'honza/vim-snippets'
 " (La)TeX
 " LaTeX with vim
 Plug 'lervag/vimtex'
+" Swift
+Plug 'keith/swift.vim'
 " JavaScript
 " javascript refactor
 Plug 'maksimr/vim-jsbeautify'

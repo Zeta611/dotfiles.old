@@ -297,6 +297,11 @@ echo -e "\n${highlight}Installing ocp-indent...${reset}"
 opam install ocp-indent
 echo "${highlight}OCaml installed!${reset}"
 
+# Install OCaml-LSP
+echo -e "\n${highlight}Installing OCaml-LSP...${reset}"
+opam pin add ocaml-lsp-server https://github.com/ocaml/ocaml-lsp.git
+opam install ocp-lsp-server
+echo "${highlight}OCaml-LSP installed!${reset}"
 
 # Setup Node.js
 echo -e "\n${highlight}Installing Node.js...${reset}"

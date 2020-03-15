@@ -3,6 +3,8 @@
         "python",
         "json"
     ],
+    // Swift
+    // "sourcekit.enable": true,
     // Python
     "python.jediEnabled": false,
     "python.linting.flake8Enabled": true,

@@ -44,7 +44,8 @@ autocmd FileType gitcommit set tw=1000
 
 autocmd FileType tpp set filetype=cpp
 autocmd FileType arduino set filetype=c
-autocmd FileType "k--" set filetype=ocaml
+autocmd BufNewFile,BufRead,BufReadPost *.k-- set filetype=swift
+autocmd BufNewFile,BufRead,BufReadPost *.stencil,*.swifttemplate set filetype=swift
 autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile set filetype=ruby
 
 set list lcs=tab:\┆\ ,eol:$,extends:>,precedes:<,trail:~
@@ -99,6 +100,26 @@ tnoremap <ESC> <C-\><C-n>
 " Edit & source vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
+au FocusGained,BufEnter * :silent! !
+
+nnoremap <C-W>o :call MaximizeToggle()<CR>
+
+function! MaximizeToggle()
+  if exists("s:maximize_session")
+    exec "source " . s:maximize_session
+    call delete(s:maximize_session)
+    unlet s:maximize_session
+    let &hidden=s:maximize_hidden_save
+    unlet s:maximize_hidden_save
+  else
+    let s:maximize_hidden_save = &hidden
+    let s:maximize_session = tempname()
+    set hidden
+    exec "mksession! " . s:maximize_session
+    only
+  endif
+endfunction
 " custom keymaps end
 
 " undotree settings begin
@@ -134,7 +155,7 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 
-nnoremap <F10> :NERDTreeToggle<cr>
+nnoremap <leader>n :NERDTreeToggle<cr>
 " NERD Commenter settings end
 
 " vimtex settings begin
@@ -222,8 +243,6 @@ if count(s:opam_available_tools,"ocp-indent") == 0
 endif
 " ## end of OPAM user-setup addition for vim / ocp-indent ## keep this line
 "
-autocmd FileType ocaml source expand('~/.opam/4.09.0/share/ocp-indent/vim/indent/ocaml.vim')
-
 
 " vim-slime settings begin
 let g:slime_target = "tmux"
@@ -318,3 +337,7 @@ let g:smoothie_no_default_mappings = v:true
 silent! nmap <unique> <C-D> <Plug>(SmoothieDownwards)
 silent! nmap <unique> <C-U> <Plug>(SmoothieUpwards)
 " vim-smoothie settings end
+
+" dash settings begin
+nmap <silent> <leader>d <Plug>DashSearch
+" dash settings end
