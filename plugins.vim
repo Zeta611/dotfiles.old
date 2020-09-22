@@ -28,6 +28,8 @@ Plug 'honza/vim-snippets'
 
 
 " Customizations for specific langauges/applications
+" C/C++/Cuda/ObjC
+Plug 'jackguo380/vim-lsp-cxx-highlight'
 " (La)TeX
 " LaTeX with vim
 Plug 'lervag/vimtex'

@@ -272,6 +272,7 @@ endfunction
 " coc.nvim settings begin
 let g:coc_global_extensions = [
 \ 'coc-calc',
+\ 'coc-clangd',
 \ 'coc-highlight',
 \ 'coc-json',
 \ 'coc-marketplace',
