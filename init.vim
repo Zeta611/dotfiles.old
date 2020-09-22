@@ -159,6 +159,7 @@ nnoremap <leader>n :NERDTreeToggle<cr>
 " NERD Commenter settings end
 
 " vimtex settings begin
+let g:tex_flavor = 'latex'
 let g:vimtex_view_method = 'skim'
 " let g:vimtex_compiler_progname = expand('~/.pyenv/versions/neovim-python3/bin/nvr')
 let g:vimtex_quickfix_mode = 2
