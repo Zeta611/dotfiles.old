@@ -3,7 +3,7 @@
         "python",
         "json"
     ],
-    "clangd.path": "/usr/local/opt/llvm/bin/clangd",
+    "clangd.path": "/usr/bin/clangd",
     "clangd.semanticHighlighting": true,
     // Swift
     // "sourcekit.enable": true,
@@ -13,9 +13,9 @@
     "python.linting.pylintEnabled": true,
     "python.linting.mypyEnabled": true,
     "python.formatting.provider": "black",
-    "python.formatting.blackArgs": [
-        "--line-length=79"
-    ],
+    // "python.formatting.blackArgs": [
+    //     "--line-length=79"
+    // ],
     // LaTeX
     "latex.lint.onChange": true,
     "languageserver": {

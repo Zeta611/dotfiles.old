@@ -1,4 +1,3 @@
-" =========================================================================== "
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Custom keymaps
@@ -28,6 +27,8 @@ Plug 'honza/vim-snippets'
 
 
 " Customizations for specific langauges/applications
+" Racket
+Plug 'wlangstroth/vim-racket'
 " C/C++/Cuda/ObjC
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 " (La)TeX

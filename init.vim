@@ -1,8 +1,8 @@
 source ~/.config/nvim/plugins.vim
 
 " make pyenv work with neovim
-let g:python_host_prog = expand('~/.pyenv/versions/neovim-python2/bin/python')
-let g:python3_host_prog = expand('~/.pyenv/versions/neovim-python3/bin/python')
+" let g:python_host_prog = expand('~/.pyenv/versions/neovim-python2/bin/python')
+" let g:python3_host_prog = expand('~/.pyenv/versions/neovim-python3/bin/python')
 
 " below two commands are redundant in Neovim
 set nocompatible
@@ -27,24 +27,20 @@ set background=dark
 set ignorecase
 set smartcase
 
-set textwidth=79
-set colorcolumn=79
+set textwidth=119
+set colorcolumn=79,88,119
 
 set so=7
 
 set noshowmode
 set shortmess+=c
 
-" set indentation
-autocmd FileType * set tabstop=4|set shiftwidth=4|set softtabstop=4|set autoindent|set cindent|set expandtab|set smarttab|set smartindent
-autocmd FileType ocaml,html,xhtml,sh,tex,ruby,yaml set tabstop=2|set shiftwidth=2|set softtabstop=2
-autocmd FileType c,go,make set tabstop=8|set shiftwidth=8|set softtabstop=8|set noexpandtab
-
+autocmd FileType * set tabstop=4|set shiftwidth=4|set softtabstop=4|set autoindent|set expandtab|set smarttab|set smartindent
+autocmd FileType javascript,markdown,vim,scheme,ocaml,html,xhtml,sh,tex,ruby,yaml,css set tabstop=2|set shiftwidth=2|set softtabstop=2
+autocmd FileType c,go,make set tabstop=8|set shiftwidth=8|set softtabstop=8|set noexpandtab|set cindent
 autocmd FileType gitcommit set tw=1000
-
 autocmd FileType tpp set filetype=cpp
 autocmd FileType arduino set filetype=c
-autocmd BufNewFile,BufRead,BufReadPost *.k-- set filetype=swift
 autocmd BufNewFile,BufRead,BufReadPost *.stencil,*.swifttemplate set filetype=swift
 autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile set filetype=ruby
 
@@ -54,11 +50,10 @@ if has("syntax")
     syntax on
 endif
 " custom syntax
-" Correct syntax highlighting for expl3
+" better syntax highlighting for expl3
 autocmd FileType tex syn match texStatement "\\[a-zA-Z_:@]\+"
 " support comments in json (jsonc)
 autocmd FileType json syntax match Comment +\/\/.\+$+
-
 
 if has("persistent_undo")
     set undodir=~/.local/share/nvim/undodir/
@@ -188,13 +183,13 @@ autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 " vim-airline settings begin
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_powerline_fonts = 1
+" let g:airline_powerline_fonts = 1
 let g:airline_theme='one'
 " vim-airline settings end
 
 " XkbSwitch settings begin
-let g:XkbSwitchEnabled = 1
-let g:XkbSwitchLib = expand('~/lib/libInputSourceSwitcher.dylib')
+" let g:XkbSwitchEnabled = 1
+" let g:XkbSwitchLib = expand('~/lib/libInputSourceSwitcher.dylib')
 " XkbSwitch settings end
 
 " AutoSave settings begin
@@ -240,13 +235,14 @@ endfor
 " ## end of OPAM user-setup addition for vim / base ## keep this line
 " ## added by OPAM user-setup for vim / ocp-indent ## 16a9c521ea63eee4413174fe9893db6c ## you can edit, but keep this line
 if count(s:opam_available_tools,"ocp-indent") == 0
-  source expand("~/.opam/4.09.0/share/ocp-indent/vim/indent/ocaml.vim")
+  source expand("~/.opam/4.11.1/share/ocp-indent/vim/indent/ocaml.vim")
 endif
 " ## end of OPAM user-setup addition for vim / ocp-indent ## keep this line
 "
 
 " vim-slime settings begin
 let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 " vim-slime settings end
 
 " fzf settings begin
